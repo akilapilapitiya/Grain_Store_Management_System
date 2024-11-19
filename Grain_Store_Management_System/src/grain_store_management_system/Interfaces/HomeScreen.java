@@ -7,7 +7,7 @@ import java.awt.*;
 public class HomeScreen extends JFrame{
     public HomeScreen(){
         //JFrame Definitions
-        setTitle("Grain Store Managment System");
+        setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
