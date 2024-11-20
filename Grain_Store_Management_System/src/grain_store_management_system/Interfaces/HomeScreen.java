@@ -56,7 +56,7 @@ public class HomeScreen extends JFrame{
         SignUpPageButton.setFont(new Font("Arial", Font.BOLD, 40));
 
 
-        //Event actions defined for SignIn
+        //Event actions defined for Login
         loginPageButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();

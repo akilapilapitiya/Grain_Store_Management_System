@@ -2,8 +2,13 @@ package Interfaces;
 
 //Imports
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener; 
 import java.awt.*;
 
 public class LoginScreen extends JFrame{
@@ -31,15 +36,91 @@ public class LoginScreen extends JFrame{
         //JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
         Image logoSet = logoImageSet.getImage();
-        Image resizedLogoImage = logoSet.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        Image resizedLogoImage = logoSet.getScaledInstance(300, 200, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(10, 5, 200, 100);
+        logoImageSetter.setBounds(80, 50, 300, 200);
+
+        //JPanel for Context Box
+        JPanel contentBox = new JPanel();
+        contentBox.setBounds(30, 30, 400, 600);
+        contentBox.setBackground(new Color(237, 235, 235));
+
+        //JLabel For Login Text
+        JLabel LoginText = new JLabel("Login");
+        LoginText.setBounds(180, 230, 100, 100);
+        LoginText.setForeground(Color.black);
+        LoginText.setFont(new Font("Arial", Font.BOLD, 24));
+
+        //Text Fields Defined for UserId
+        JTextField userIdTextBox = new JTextField("Enter your User ID");
+        userIdTextBox.setBounds(120, 320, 180, 40);
+        userIdTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
+
+        //Text Fields Defined for Password
+        JTextField userPasswordTextBox = new JTextField("Enter your Password");
+        userPasswordTextBox.setBounds(120, 380, 180, 40);
+        userPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
+
+        //Buttons defined for Submit
+        JButton submitButton = new JButton("Submit");
+        submitButton.setBounds(150, 450, 100, 40);
+        submitButton.setBackground(new Color(166, 164, 164));
+        submitButton.setForeground(Color.white);
+        submitButton.setFont(new Font("Arial", Font.BOLD, 16));
+
+        //Buttons defined for Back
+        JButton backButton = new JButton("Back");
+        backButton.setBounds(150, 500, 100, 40);
+        backButton.setBackground(new Color(166, 164, 164));
+        backButton.setForeground(Color.white);
+        backButton.setFont(new Font("Arial", Font.BOLD, 16));
+
+        //Buttons defined for NoAccount
+        JButton noAccountButton = new JButton("I dont have an Account");
+        noAccountButton.setBounds(90, 550, 220, 40);
+        noAccountButton.setBorder(null);
+        noAccountButton.setForeground(Color.BLACK);
+        noAccountButton.setBackground(new Color(237, 235, 235));
+        noAccountButton.setFont(new Font("Arial", Font.BOLD, 16));
+
+
+        //Event actions defined for backButton
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new HomeScreen().setVisible(true);
+            }
+        });
+
+        //Event actions defined for I dont have an Account
+        noAccountButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new SignupScreen().setVisible(true);
+            }
+        });
+
+        //Event actions defined for Submit Button
+        submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                System.out.println("Hello");
+            }
+        });
 
 
         //Add Elements to the Frame
         add(logoImageSetter);
+        add(LoginText);
+        add(userPasswordTextBox);
+        add(userIdTextBox);
+        add(submitButton);
+        add(noAccountButton);
+        add(backButton);
+        add(contentBox);
         add(backgroundImageSetter);
+
+
     
     }
     
