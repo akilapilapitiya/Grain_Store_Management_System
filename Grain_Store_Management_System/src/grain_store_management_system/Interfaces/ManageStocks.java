@@ -10,8 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
 
-public class ReportGenerate extends JFrame{
-    public ReportGenerate(){
+public class ManageStocks extends JFrame{
+    public ManageStocks(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -56,7 +56,7 @@ public class ReportGenerate extends JFrame{
         titleBox.setBackground(new Color(172, 145, 127));
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Generate Reports");
+        JLabel titleLabel = new JLabel("Manage Stocks");
         titleLabel.setBounds(310, 25, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
@@ -80,7 +80,7 @@ public class ReportGenerate extends JFrame{
 
         //Buttons defined for Report Generation
         JButton reportButton = new JButton("Report");
-        reportButton.setBounds(10, 300, 250, 50);
+        reportButton.setBounds(10, 300, 200, 50);
         reportButton.setBackground(new Color(237, 235, 235));
         reportButton.setBorderPainted(false);
         reportButton.setForeground(Color.BLACK);
@@ -88,7 +88,7 @@ public class ReportGenerate extends JFrame{
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
-        manageStocksButton.setBounds(10, 380, 200, 50);
+        manageStocksButton.setBounds(10, 380, 250, 50);
         manageStocksButton.setBackground(new Color(237, 235, 235));
         manageStocksButton.setBorderPainted(false);
         manageStocksButton.setForeground(Color.BLACK);
@@ -145,8 +145,8 @@ public class ReportGenerate extends JFrame{
 
         //Add Elements to the Frame
         add(logoImageSetter);
-        add(dashBoardButton);
         add(titleLabel);
+        add(dashBoardButton);
         add(availabilityButton);
         add(reportButton);
         add(manageStocksButton);

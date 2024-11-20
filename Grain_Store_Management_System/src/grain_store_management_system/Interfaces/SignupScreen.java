@@ -38,10 +38,10 @@ public class SignupScreen extends JFrame{
         //JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
         Image logoSet = logoImageSet.getImage();
-        Image resizedLogoImage = logoSet.getScaledInstance(300, 200, Image.SCALE_SMOOTH);
+        Image resizedLogoImage = logoSet.getScaledInstance(400, 200, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(80, 50, 300, 200);
+        logoImageSetter.setBounds(60, 50, 400, 200);
 
         //JPanel for Context Box
         JPanel contentBox = new JPanel();
@@ -49,41 +49,41 @@ public class SignupScreen extends JFrame{
         contentBox.setBackground(new Color(237, 235, 235));
 
         //JLabel For Login Text
-        JLabel SignUpText = new JLabel("SignUp");
-        SignUpText.setBounds(180, 230, 100, 100);
+        JLabel SignUpText = new JLabel("Sign-up");
+        SignUpText.setBounds(170, 210, 150, 100);
         SignUpText.setForeground(Color.black);
-        SignUpText.setFont(new Font("Arial", Font.BOLD, 24));
+        SignUpText.setFont(new Font("Arial", Font.BOLD, 30));
 
         //Text Fields Defined for UserName
         JTextField userNameTextBox = new JTextField("Enter your Name");
-        userNameTextBox.setBounds(120, 320, 180, 40);
+        userNameTextBox.setBounds(140, 320, 180, 40);
         userNameTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
 
         //Text Fields Defined for Password
         JTextField userMobileTextBox = new JTextField("Enter your Mobile Number");
-        userMobileTextBox.setBounds(120, 380, 180, 40);
+        userMobileTextBox.setBounds(140, 380, 180, 40);
         userMobileTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
 
          //Text Fields Defined for Password
          JTextField userPasswordTextBox = new JTextField("Enter a Password");
-         userPasswordTextBox.setBounds(120, 440, 180, 40);
+         userPasswordTextBox.setBounds(140, 440, 180, 40);
          userPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
 
          //Text Fields Defined for Confirm Password
          JTextField userConfirmPasswordTextBox = new JTextField("Confirm Password");
-         userConfirmPasswordTextBox.setBounds(120, 500, 180, 40);
+         userConfirmPasswordTextBox.setBounds(140, 500, 180, 40);
          userConfirmPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
         
          //Buttons defined for Submit
         JButton submitButton = new JButton("Submit");
-        submitButton.setBounds(230, 560, 100, 40);
+        submitButton.setBounds(245, 560, 100, 40);
         submitButton.setBackground(new Color(166, 164, 164));
         submitButton.setForeground(Color.white);
         submitButton.setFont(new Font("Arial", Font.BOLD, 16));
 
         //Buttons defined for Back
         JButton backButton = new JButton("Back");
-        backButton.setBounds(100, 560, 100, 40);
+        backButton.setBounds(120, 560, 100, 40);
         backButton.setBackground(new Color(166, 164, 164));
         backButton.setForeground(Color.white);
         backButton.setFont(new Font("Arial", Font.BOLD, 16));

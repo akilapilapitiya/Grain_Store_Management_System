@@ -36,10 +36,10 @@ public class LoginScreen extends JFrame{
         //JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
         Image logoSet = logoImageSet.getImage();
-        Image resizedLogoImage = logoSet.getScaledInstance(300, 200, Image.SCALE_SMOOTH);
+        Image resizedLogoImage = logoSet.getScaledInstance(400, 200, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(80, 50, 300, 200);
+        logoImageSetter.setBounds(60, 50, 400, 200);
 
         //JPanel for Context Box
         JPanel contentBox = new JPanel();
@@ -48,7 +48,7 @@ public class LoginScreen extends JFrame{
 
         //JLabel For Login Text
         JLabel LoginText = new JLabel("Login");
-        LoginText.setBounds(180, 230, 100, 100);
+        LoginText.setBounds(170, 210, 150, 100);
         LoginText.setForeground(Color.black);
         LoginText.setFont(new Font("Arial", Font.BOLD, 24));
 
@@ -64,21 +64,21 @@ public class LoginScreen extends JFrame{
 
         //Buttons defined for Submit
         JButton submitButton = new JButton("Submit");
-        submitButton.setBounds(150, 450, 100, 40);
+        submitButton.setBounds(225, 440, 100, 40);
         submitButton.setBackground(new Color(166, 164, 164));
         submitButton.setForeground(Color.white);
         submitButton.setFont(new Font("Arial", Font.BOLD, 16));
 
         //Buttons defined for Back
         JButton backButton = new JButton("Back");
-        backButton.setBounds(150, 500, 100, 40);
+        backButton.setBounds(100, 440, 100, 40);
         backButton.setBackground(new Color(166, 164, 164));
         backButton.setForeground(Color.white);
         backButton.setFont(new Font("Arial", Font.BOLD, 16));
 
         //Buttons defined for NoAccount
-        JButton noAccountButton = new JButton("I dont have an Account");
-        noAccountButton.setBounds(90, 550, 220, 40);
+        JButton noAccountButton = new JButton("I don't have an Account");
+        noAccountButton.setBounds(100, 500, 220, 40);
         noAccountButton.setBorder(null);
         noAccountButton.setForeground(Color.BLACK);
         noAccountButton.setBackground(new Color(237, 235, 235));
@@ -104,7 +104,8 @@ public class LoginScreen extends JFrame{
         //Event actions defined for Submit Button
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                System.out.println("Hello");
+                dispose();
+                new DashboardView().setVisible(true);
             }
         });
 

@@ -12,7 +12,7 @@ import java.awt.*;
 public class HomeScreen extends JFrame{
     public HomeScreen(){
         //JFrame Definitions
-        setTitle("Grain Store Managment System"); //Title Changed
+        setTitle("Grain Storage Managment System"); //Title Changed
         setSize(1000, 700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
@@ -24,7 +24,7 @@ public class HomeScreen extends JFrame{
         setIconImage(image);
 
         //JFrame Background Image
-        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/homeScreenBackground.jpg"));
+        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/sideView.png"));
         Image imageSet = backgroundImageSet.getImage();
         Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
