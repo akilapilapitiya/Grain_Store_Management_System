@@ -6,9 +6,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
+import javax.swing.table.DefaultTableModel;
 
 public class GovernmentAvailability extends JFrame{
     public GovernmentAvailability(){
@@ -56,8 +61,8 @@ public class GovernmentAvailability extends JFrame{
         titleBox.setBackground(new Color(172, 145, 127));
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Stock Availability - Government Sector");
-        titleLabel.setBounds(310, 25, 400, 50);
+        JLabel titleLabel = new JLabel("Stock Availability - GOVT.");
+        titleLabel.setBounds(310, 25, 550, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
@@ -72,7 +77,7 @@ public class GovernmentAvailability extends JFrame{
 
         //Buttons defined for Stock Availability
         JButton availabilityButton = new JButton("Stock Availability");
-        availabilityButton.setBounds(10, 220, 200, 50);
+        availabilityButton.setBounds(10, 220, 250, 50);
         availabilityButton.setBackground(new Color(237, 235, 235));
         availabilityButton.setBorderPainted(false);
         availabilityButton.setForeground(Color.BLACK);
@@ -88,7 +93,7 @@ public class GovernmentAvailability extends JFrame{
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
-        manageStocksButton.setBounds(10, 380, 250, 50);
+        manageStocksButton.setBounds(10, 380, 200, 50);
         manageStocksButton.setBackground(new Color(237, 235, 235));
         manageStocksButton.setBorderPainted(false);
         manageStocksButton.setForeground(Color.BLACK);
@@ -102,6 +107,43 @@ public class GovernmentAvailability extends JFrame{
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         
+        //Table Column Headings Defined
+        String []columnNames = {"Item ID", "Name", "Quantity (kgs)", "PPUs", "Last Updated"};
+        Object[][] StoreArray = {
+            {1, "G001", "Rice", 10400, 250,"12-10-24"},
+            {2, "G002", "Barley", 5000, 300,"20-10-24"},
+            {3, "G003", "Corn", 7800, 400, "25-10-24"}
+        };
+
+        // Create a table model
+        DefaultTableModel model = new DefaultTableModel(StoreArray, columnNames);
+
+        // Create a JTable using the model
+        JTable viewTable = new JTable(model);
+
+        //Table Appearance Customizations
+        viewTable.setFont(new Font("Arial",Font.PLAIN, 14));
+        viewTable.setRowHeight(30);
+        viewTable.setBackground(new Color(237, 235, 235));
+        viewTable.setForeground(Color.BLACK);
+        viewTable.setGridColor(Color.DARK_GRAY);
+        viewTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
+        viewTable.getTableHeader().setBackground(new Color(172, 145, 127));
+        viewTable.getTableHeader().setForeground(Color.WHITE);
+
+        //Column Width Customizations
+        viewTable.getColumnModel().getColumn(0).setPreferredWidth(50); 
+        viewTable.getColumnModel().getColumn(1).setPreferredWidth(50);
+        viewTable.getColumnModel().getColumn(2).setPreferredWidth(50);
+        viewTable.getColumnModel().getColumn(3).setPreferredWidth(50);
+        viewTable.getColumnModel().getColumn(4).setPreferredWidth(50);
+
+        // Add the table to a JScrollPane for scroll functionality
+        JScrollPane scrollPane = new JScrollPane(viewTable);
+        scrollPane.setBounds(260, 121, 710, 150);
+        scrollPane.setBackground(new Color(237, 235, 235));
+        scrollPane.getViewport().setBackground(new Color(237, 235, 235));
+        scrollPane.setBorder(new EmptyBorder(0,0,0,0));
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
@@ -151,6 +193,7 @@ public class GovernmentAvailability extends JFrame{
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);
+        add(scrollPane);
         add(titleBox);
         add(menuBox);
         add(bodyBox);
