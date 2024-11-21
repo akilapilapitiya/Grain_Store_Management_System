@@ -1,5 +1,5 @@
 //File Imports
-import grain_store_management_system.Interfaces.HomeScreen;
+import Interfaces.HomeScreen;
 
 
 public class Grain_Store_Management_System {

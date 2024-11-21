@@ -1,4 +1,4 @@
-package grain_store_management_system.Entity;
+package Entity;
 
 
 public class stockEntity {

@@ -1,4 +1,4 @@
-package grain_store_management_system.DatabaseConnect;
+package DatabaseConnect;
 
 //Imports
 import java.sql.Connection;

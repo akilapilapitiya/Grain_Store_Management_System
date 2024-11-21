@@ -1,4 +1,4 @@
-package grain_store_management_system.Interfaces;
+package Interfaces;
 
 //Imports
 import javax.swing.ImageIcon;
