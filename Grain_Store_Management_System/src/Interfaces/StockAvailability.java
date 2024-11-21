@@ -56,7 +56,7 @@ public class StockAvailability extends JFrame{
         titleBox.setBackground(new Color(172, 145, 127));
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Stocks Availability");
+        JLabel titleLabel = new JLabel("Stocks Availability - Private Sector");
         titleLabel.setBounds(310, 25, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);

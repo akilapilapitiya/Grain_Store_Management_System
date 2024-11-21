@@ -56,7 +56,7 @@ public class GovernmentAvailability extends JFrame{
         titleBox.setBackground(new Color(172, 145, 127));
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Manage Stocks");
+        JLabel titleLabel = new JLabel("Stock Availability - Government Sector");
         titleLabel.setBounds(310, 25, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
