@@ -24,7 +24,7 @@ public class HomeScreen extends JFrame{
         setIconImage(image);
 
         //JFrame Background Image
-        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/sideView.png"));
+        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/HomeScreenBackground.jpg"));
         Image imageSet = backgroundImageSet.getImage();
         Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
@@ -37,22 +37,22 @@ public class HomeScreen extends JFrame{
         Image resizedLogoImage = logoSet.getScaledInstance(400, 200, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(50, 30, 400, 200);
+        logoImageSetter.setBounds(50, 20, 400, 200);
         
         //JButton for Login Link
         JButton loginPageButton = new JButton("Login");
-        loginPageButton.setBounds(250, 370, 200, 80);
-        loginPageButton.setBackground(new Color(255,255,255));
+        loginPageButton.setBounds(150, 370, 200, 80);
+        loginPageButton.setBackground(new Color(27, 17, 14));
         loginPageButton.setBorderPainted(false);
-        loginPageButton.setForeground(Color.BLACK);
+        loginPageButton.setForeground(Color.WHITE);
         loginPageButton.setFont(new Font("Arial", Font.BOLD, 40));
 
         //JButton for SignUp Link
         JButton SignUpPageButton = new JButton("Signup");
-        SignUpPageButton.setBounds(550, 370, 200, 80);
-        SignUpPageButton.setBackground(new Color(255,255,255));
+        SignUpPageButton.setBounds(150, 470, 200, 80);
+        SignUpPageButton.setBackground(new Color(27, 17, 14));
         SignUpPageButton.setBorderPainted(false);
-        SignUpPageButton.setForeground(Color.BLACK);
+        SignUpPageButton.setForeground(Color.WHITE);
         SignUpPageButton.setFont(new Font("Arial", Font.BOLD, 40));
 
 
