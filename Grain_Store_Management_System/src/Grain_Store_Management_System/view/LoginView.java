@@ -4,7 +4,7 @@
  */
 package Grain_Store_Management_System.view;
 
-import granix.db.DBConnection;
+import Grain_Store_Management_System.db.DBConnection;
 import java.awt.Color;
 import java.io.IOException;
 import java.net.URL;
@@ -340,8 +340,8 @@ public class LoginView extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void loadDashboard() {
-        new DashboardView().setLocationRelativeTo(null);
-        new DashboardView().setVisible(true);
+        new EntranceView().setLocationRelativeTo(null);
+        new EntranceView().setVisible(true);
         this.dispose();
     }
     public void loginOnAction() throws IOException, SQLException {

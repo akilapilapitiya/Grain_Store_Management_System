@@ -4,7 +4,7 @@
  */
 package Grain_Store_Management_System.view;
 
-import granix.view.LoginView;
+import Grain_Store_Management_System.view.LoginView;
 /**
  *
  * @author ASUS

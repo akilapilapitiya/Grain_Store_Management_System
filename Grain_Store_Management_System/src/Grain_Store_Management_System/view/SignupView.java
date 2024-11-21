@@ -4,8 +4,8 @@
  */
 package Grain_Store_Management_System.view;
 
-import granix.controller.userController;
-import granix.dto.userDto;
+import Grain_Store_Management_System.controller.userController;
+import Grain_Store_Management_System.dto.userDto;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;

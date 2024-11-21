@@ -4,6 +4,8 @@
  */
 package Grain_Store_Management_System;
 
+import Grain_Store_Management_System.view.EntranceView;
+
 /**
  *
  * @author ASUS
@@ -11,7 +13,7 @@ package Grain_Store_Management_System;
 public class Grain_Store_Management_System {
     public static void main(String[] args) {
         //Call the Homescreen Inteface
-        //new HomeScreen().setVisible(true);
+        new EntranceView().setVisible(true);
 
     }
 }

@@ -2,22 +2,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Grain_Store_Management_System.Entity;
+package Grain_Store_Management_System.dto;
 
 /**
  *
  * @author ASUS
  */
-public class userEntity {
+public class userDto {
     private String Employee_ID;
     private String First_name;
     private String Second_name;
     private String User_Password;
     
-    public userEntity() {
+    public userDto() {
     }
 
-    public userEntity(String Employee_ID, String First_name, String Second_name, String User_Password) {
+    public userDto(String Employee_ID, String First_name, String Second_name, String User_Password) {
         
         this.Employee_ID = Employee_ID;
         this.First_name = First_name;
