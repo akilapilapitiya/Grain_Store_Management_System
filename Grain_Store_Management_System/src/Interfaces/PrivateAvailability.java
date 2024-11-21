@@ -110,9 +110,9 @@ public class PrivateAvailability extends JFrame{
         //Table Column Headings Defined
         String []columnNames = {"Item ID", "Name", "Quantity (kgs)", "PPUs", "Last Updated"};
         Object[][] StoreArray = {
-            {1, "G001", "Rice", 10400, 250,"12-10-24"},
-            {2, "G002", "Barley", 5000, 300,"20-10-24"},
-            {3, "G003", "Corn", 7800, 400, "25-10-24"}
+            {"G001", "Rice", 10400, 250,"12-10-24"},
+            {"G002", "Barley", 5000, 300,"20-10-24"},
+            {"G003", "Corn", 7800, 400, "25-10-24"}
         };
 
         // Create a table model
