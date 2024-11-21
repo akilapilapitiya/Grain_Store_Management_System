@@ -41,7 +41,7 @@ public class HomeScreen extends JFrame{
         
         //JButton for Login Link
         JButton loginPageButton = new JButton("Login");
-        loginPageButton.setBounds(150, 370, 200, 80);
+        loginPageButton.setBounds(50, 370, 300, 80);
         loginPageButton.setBackground(new Color(27, 17, 14));
         loginPageButton.setBorderPainted(false);
         loginPageButton.setForeground(Color.WHITE);
@@ -49,7 +49,7 @@ public class HomeScreen extends JFrame{
 
         //JButton for SignUp Link
         JButton SignUpPageButton = new JButton("Signup");
-        SignUpPageButton.setBounds(150, 470, 200, 80);
+        SignUpPageButton.setBounds(50, 470, 300, 80);
         SignUpPageButton.setBackground(new Color(27, 17, 14));
         SignUpPageButton.setBorderPainted(false);
         SignUpPageButton.setForeground(Color.WHITE);

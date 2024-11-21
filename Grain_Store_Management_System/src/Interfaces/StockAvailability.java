@@ -102,6 +102,21 @@ public class StockAvailability extends JFrame{
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         
+        //Buttons defined for DashBoard
+        JButton governmentIconButton = new JButton("Government Sector");
+        governmentIconButton.setBounds(450, 140, 400, 80);
+        governmentIconButton.setBackground(new Color(172, 145, 127));
+        governmentIconButton.setBorderPainted(false);
+        governmentIconButton.setForeground(Color.WHITE);
+        governmentIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+
+        //Buttons defined for getReport
+        JButton privateIconButton = new JButton("Private Sector");
+        privateIconButton.setBounds(450, 280, 400, 80);
+        privateIconButton.setBackground(new Color(172, 145, 127));
+        privateIconButton.setBorderPainted(false);
+        privateIconButton.setForeground(Color.WHITE);
+        privateIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
@@ -143,6 +158,22 @@ public class StockAvailability extends JFrame{
             }
         });
 
+        //Event actions defined for Government Sector Select
+        governmentIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new HomeScreen().setVisible(true);
+            }
+        });
+
+        //Event actions defined for Provate Sector Select
+        privateIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new HomeScreen().setVisible(true);
+            }
+        });
+
         //Add Elements to the Frame
         add(logoImageSetter);
         add(dashBoardButton);
@@ -151,6 +182,8 @@ public class StockAvailability extends JFrame{
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);
+        add(governmentIconButton);
+        add(privateIconButton);
         add(titleBox);
         add(menuBox);
         add(bodyBox);

@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.*;
 
 public class LoginScreen extends JFrame{
@@ -84,7 +86,40 @@ public class LoginScreen extends JFrame{
         noAccountButton.setBackground(new Color(237, 235, 235));
         noAccountButton.setFont(new Font("Arial", Font.BOLD, 16));
 
+        // Add a FocusListener for userIdTextBox
+        userIdTextBox.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                // Add Focus
+                userIdTextBox.setText("");    
+            }
 
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Lose Focus
+                if (userIdTextBox.getText().isEmpty()) {
+                    userIdTextBox.setText("Enter your User ID");
+                }
+            }
+        });
+
+        // Add a FocusListener for userPasswordTextBox
+        userPasswordTextBox.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                // Add Focus
+                userPasswordTextBox.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Lose Focus
+                if (userPasswordTextBox.getText().isEmpty()) {
+                    userPasswordTextBox.setText("Enter your Password");
+                }
+            }
+        });
+        
         //Event actions defined for backButton
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){

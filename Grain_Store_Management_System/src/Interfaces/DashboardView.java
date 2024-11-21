@@ -101,6 +101,32 @@ public class DashboardView extends JFrame{
         logoutButton.setBorderPainted(false);
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
+
+        //Buttons defined for DashBoard
+        JButton availabilityIconButton = new JButton("Check Stocks Availability");
+        availabilityIconButton.setBounds(450, 140, 400, 80);
+        availabilityIconButton.setBackground(new Color(172, 145, 127));
+        availabilityIconButton.setBorderPainted(false);
+        availabilityIconButton.setForeground(Color.WHITE);
+        availabilityIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+
+        //Buttons defined for getReport
+        JButton getReportButton = new JButton("Generate Reports");
+        getReportButton.setBounds(450, 280, 400, 80);
+        getReportButton.setBackground(new Color(172, 145, 127));
+        getReportButton.setBorderPainted(false);
+        getReportButton.setForeground(Color.WHITE);
+        getReportButton.setFont(new Font("Arial", Font.BOLD, 25));
+        
+
+        //Buttons defined for Manage Stocks
+        JButton manageStockIconButton = new JButton("Manage Stocks");
+        manageStockIconButton.setBounds(450, 420, 400, 80);
+        manageStockIconButton.setBackground(new Color(172, 145, 127));
+        manageStockIconButton.setBorderPainted(false);
+        manageStockIconButton.setForeground(Color.WHITE);
+        manageStockIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+        
         
 
         //Event actions defined for Dashboard Button
@@ -143,6 +169,30 @@ public class DashboardView extends JFrame{
             }
         });
 
+        //Event actions defined for StockAvailabitity Button
+        availabilityIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new StockAvailability().setVisible(true);
+            }
+        });
+
+        //Event actions defined for getReport Button
+        getReportButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ReportGenerate().setVisible(true);
+            }
+        });
+
+        //Event actions defined for manageStockIcon Button
+        manageStockIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageStocks().setVisible(true);
+            }
+        });
+
         //Add Elements to the Frame
         add(logoImageSetter);
         add(titleLabel);
@@ -152,6 +202,9 @@ public class DashboardView extends JFrame{
         add(manageStocksButton);
         add(logoutButton);
         add(titleBox);
+        add(availabilityIconButton);
+        add(getReportButton);
+        add(manageStockIconButton);
         add(menuBox);
         add(bodyBox);
         add(backgroundImageSetter);
