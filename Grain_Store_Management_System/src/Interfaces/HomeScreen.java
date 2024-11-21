@@ -17,7 +17,7 @@ public class HomeScreen extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         getContentPane().setBackground(Color.white);
-
+////oooooo
         //JFrame Logo
         ImageIcon iconImage = new ImageIcon(getClass().getResource("assets/icon.png"));
         Image image = iconImage.getImage();
