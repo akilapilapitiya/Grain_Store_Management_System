@@ -145,7 +145,7 @@ public class GovernmentAvailability extends JFrame{
         scrollPane.getViewport().setBackground(new Color(237, 235, 235));
         scrollPane.setBorder(new EmptyBorder(0,0,0,0));
 
-        //Event actions defined for Dashboard Button
+        //Event actions defined for Dashboard Button added
         dashBoardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
