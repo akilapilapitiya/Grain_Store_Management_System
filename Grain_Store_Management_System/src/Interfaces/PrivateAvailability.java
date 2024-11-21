@@ -10,8 +10,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
 
-public class StockAvailability extends JFrame{
-    public StockAvailability(){
+public class PrivateAvailability extends JFrame{
+    public PrivateAvailability(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -56,7 +56,7 @@ public class StockAvailability extends JFrame{
         titleBox.setBackground(new Color(172, 145, 127));
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Stocks Availability");
+        JLabel titleLabel = new JLabel("Manage Stocks");
         titleLabel.setBounds(310, 25, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
@@ -72,7 +72,7 @@ public class StockAvailability extends JFrame{
 
         //Buttons defined for Stock Availability
         JButton availabilityButton = new JButton("Stock Availability");
-        availabilityButton.setBounds(10, 220, 250, 50);
+        availabilityButton.setBounds(10, 220, 200, 50);
         availabilityButton.setBackground(new Color(237, 235, 235));
         availabilityButton.setBorderPainted(false);
         availabilityButton.setForeground(Color.BLACK);
@@ -88,7 +88,7 @@ public class StockAvailability extends JFrame{
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
-        manageStocksButton.setBounds(10, 380, 200, 50);
+        manageStocksButton.setBounds(10, 380, 250, 50);
         manageStocksButton.setBackground(new Color(237, 235, 235));
         manageStocksButton.setBorderPainted(false);
         manageStocksButton.setForeground(Color.BLACK);
@@ -102,21 +102,6 @@ public class StockAvailability extends JFrame{
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         
-        //Buttons defined for DashBoard
-        JButton governmentIconButton = new JButton("Government Sector");
-        governmentIconButton.setBounds(450, 140, 400, 80);
-        governmentIconButton.setBackground(new Color(172, 145, 127));
-        governmentIconButton.setBorderPainted(false);
-        governmentIconButton.setForeground(Color.WHITE);
-        governmentIconButton.setFont(new Font("Arial", Font.BOLD, 25));
-
-        //Buttons defined for getReport
-        JButton privateIconButton = new JButton("Private Sector");
-        privateIconButton.setBounds(450, 280, 400, 80);
-        privateIconButton.setBackground(new Color(172, 145, 127));
-        privateIconButton.setBorderPainted(false);
-        privateIconButton.setForeground(Color.WHITE);
-        privateIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
@@ -158,32 +143,14 @@ public class StockAvailability extends JFrame{
             }
         });
 
-        //Event actions defined for Government Sector Select
-        governmentIconButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                dispose();
-                new GovernmentAvailability().setVisible(true);
-            }
-        });
-
-        //Event actions defined for Provate Sector Select
-        privateIconButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                dispose();
-                new PrivateAvailability().setVisible(true);
-            }
-        });
-
         //Add Elements to the Frame
         add(logoImageSetter);
-        add(dashBoardButton);
         add(titleLabel);
+        add(dashBoardButton);
         add(availabilityButton);
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);
-        add(governmentIconButton);
-        add(privateIconButton);
         add(titleBox);
         add(menuBox);
         add(bodyBox);
