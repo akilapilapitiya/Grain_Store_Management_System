@@ -6,6 +6,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
@@ -30,7 +33,7 @@ public class DashboardView extends JFrame{
         Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
         JLabel backgroundImageSetter = new JLabel(backgroundImage);
-        backgroundImageSetter.setBounds(0, 0, 1000, 700);
+        backgroundImageSetter.setBounds(100, 0, 1000, 700);
 
         //JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
@@ -38,7 +41,7 @@ public class DashboardView extends JFrame{
         Image resizedLogoImage = logoSet.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(40, 20, 200, 100);
+        logoImageSetter.setBounds(40, 0, 200, 100);
 
         //JPanel for menu Box
         JPanel menuBox = new JPanel();
@@ -53,13 +56,13 @@ public class DashboardView extends JFrame{
 
         //JPanel for Title Box
         JPanel titleBox = new JPanel();
-        titleBox.setBounds(260, 10, 710, 75);
+        titleBox.setBounds(260, 0, 740, 75);
         titleBox.setBackground(new Color(172, 145, 127));
 
 
         //JLabel For Interface Title
         JLabel titleLabel = new JLabel("Dashboard");
-        titleLabel.setBounds(310, 25, 400, 50);
+        titleLabel.setBounds(310, 15, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
@@ -114,7 +117,7 @@ public class DashboardView extends JFrame{
 
         //Buttons defined for DashBoard
         JButton availabilityIconButton = new JButton("Check Stocks Availability");
-        availabilityIconButton.setBounds(450, 140, 400, 80);
+        availabilityIconButton.setBounds(420, 160, 400, 80);
         availabilityIconButton.setBackground(new Color(172, 145, 127));
         availabilityIconButton.setBorderPainted(false);
         availabilityIconButton.setForeground(Color.WHITE);
@@ -122,7 +125,7 @@ public class DashboardView extends JFrame{
 
         //Buttons defined for getReport
         JButton getReportButton = new JButton("Generate Reports");
-        getReportButton.setBounds(450, 280, 400, 80);
+        getReportButton.setBounds(420, 300, 400, 80);
         getReportButton.setBackground(new Color(172, 145, 127));
         getReportButton.setBorderPainted(false);
         getReportButton.setForeground(Color.WHITE);
@@ -131,9 +134,9 @@ public class DashboardView extends JFrame{
 
         //Buttons defined for Manage Stocks
         JButton manageStockIconButton = new JButton("Manage Stocks");
-        manageStockIconButton.setBounds(450, 420, 400, 80);
+        manageStockIconButton.setBounds(420, 440, 400, 80);
         manageStockIconButton.setBackground(new Color(172, 145, 127));
-        manageStockIconButton.setBorderPainted(false);
+        manageStockIconButton.setBorder(new LineBorder(new Color(102,51,0), 3)); 
         manageStockIconButton.setForeground(Color.WHITE);
         manageStockIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
@@ -218,7 +221,7 @@ public class DashboardView extends JFrame{
         add(getReportButton);
         add(manageStockIconButton);
         add(menuBox);
-        add(bodyBox);
+        //add(bodyBox);
         add(backgroundImageSetter);
     }   
 }
