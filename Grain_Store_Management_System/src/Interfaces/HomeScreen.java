@@ -26,10 +26,10 @@ public class HomeScreen extends JFrame{
         //JFrame Background Image
         ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/HomeScreenBackground.png"));
         Image imageSet = backgroundImageSet.getImage();
-        Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
+        Image resizedImage = imageSet.getScaledInstance(1005, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
         JLabel backgroundImageSetter = new JLabel(backgroundImage);
-        backgroundImageSetter.setBounds(0, 0, 1000, 700);
+        backgroundImageSetter.setBounds(0, 0, 1005, 700);
 
         /*//JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
@@ -40,12 +40,14 @@ public class HomeScreen extends JFrame{
         logoImageSetter.setBounds(50, 20, 400, 200);*/
         
         //JButton for Login Link
-        JButton loginPageButton = new JButton("Login");
-        loginPageButton.setBounds(50, 370, 300, 80);
-        loginPageButton.setBackground(new Color(27, 17, 14));
+        JButton loginPageButton = new JButton("");
+        loginPageButton.setBounds(220, 434, 200, 76);
+        //loginPageButton.setBackground(new Color(27, 17, 14));
         loginPageButton.setBorderPainted(false);
-        loginPageButton.setForeground(Color.WHITE);
-        loginPageButton.setFont(new Font("Arial", Font.BOLD, 40));
+        //loginPageButton.setForeground(Color.WHITE);
+        loginPageButton.setContentAreaFilled(false);
+        loginPageButton.setBorderPainted(false);
+        loginPageButton.setOpaque(false);
 
         //JButton for SignUp Link
         JButton SignUpPageButton = new JButton("Signup");
@@ -77,7 +79,7 @@ public class HomeScreen extends JFrame{
     add(loginPageButton);
     //add(SignUpPageButton);
     //add(logoImageSetter);
-    //add(backgroundImageSetter);
+    add(backgroundImageSetter);
     
     
 }   
