@@ -119,7 +119,7 @@ public class DashboardView extends JFrame{
         JButton availabilityIconButton = new JButton("Check Stocks Availability");
         availabilityIconButton.setBounds(420, 160, 400, 80);
         availabilityIconButton.setBackground(new Color(172, 145, 127));
-        availabilityIconButton.setBorderPainted(false);
+        availabilityIconButton.setBorder(new LineBorder(new Color(102,51,0), 4)); 
         availabilityIconButton.setForeground(Color.WHITE);
         availabilityIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
@@ -127,7 +127,7 @@ public class DashboardView extends JFrame{
         JButton getReportButton = new JButton("Generate Reports");
         getReportButton.setBounds(420, 300, 400, 80);
         getReportButton.setBackground(new Color(172, 145, 127));
-        getReportButton.setBorderPainted(false);
+        getReportButton.setBorder(new LineBorder(new Color(102,51,0), 4)); 
         getReportButton.setForeground(Color.WHITE);
         getReportButton.setFont(new Font("Arial", Font.BOLD, 25));
         
@@ -136,7 +136,7 @@ public class DashboardView extends JFrame{
         JButton manageStockIconButton = new JButton("Manage Stocks");
         manageStockIconButton.setBounds(420, 440, 400, 80);
         manageStockIconButton.setBackground(new Color(172, 145, 127));
-        manageStockIconButton.setBorder(new LineBorder(new Color(102,51,0), 3)); 
+        manageStockIconButton.setBorder(new LineBorder(new Color(102,51,0), 4)); 
         manageStockIconButton.setForeground(Color.WHITE);
         manageStockIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
