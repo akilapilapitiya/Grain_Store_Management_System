@@ -17,27 +17,27 @@ public class HomeScreen extends JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null);
         getContentPane().setBackground(Color.white);
-////oooooo
+
         //JFrame Logo
         ImageIcon iconImage = new ImageIcon(getClass().getResource("assets/icon.png"));
         Image image = iconImage.getImage();
         setIconImage(image);
 
         //JFrame Background Image
-        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/HomeScreenBackground.jpg"));
+        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/HomeScreenBackground.png"));
         Image imageSet = backgroundImageSet.getImage();
         Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
         JLabel backgroundImageSetter = new JLabel(backgroundImage);
         backgroundImageSetter.setBounds(0, 0, 1000, 700);
 
-        //JFrame Logo Image
+        /*//JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
         Image logoSet = logoImageSet.getImage();
         Image resizedLogoImage = logoSet.getScaledInstance(400, 200, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(50, 20, 400, 200);
+        logoImageSetter.setBounds(50, 20, 400, 200);*/
         
         //JButton for Login Link
         JButton loginPageButton = new JButton("Login");
@@ -75,9 +75,9 @@ public class HomeScreen extends JFrame{
     
     //Add Elements to the Frame
     add(loginPageButton);
-    add(SignUpPageButton);
-    add(logoImageSetter);
-    add(backgroundImageSetter);
+    //add(SignUpPageButton);
+    //add(logoImageSetter);
+    //add(backgroundImageSetter);
     
     
 }   
