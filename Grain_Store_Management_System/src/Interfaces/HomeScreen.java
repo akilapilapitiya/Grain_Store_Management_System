@@ -42,20 +42,19 @@ public class HomeScreen extends JFrame{
         //JButton for Login Link
         JButton loginPageButton = new JButton("");
         loginPageButton.setBounds(220, 434, 200, 76);
-        //loginPageButton.setBackground(new Color(27, 17, 14));
         loginPageButton.setBorderPainted(false);
-        //loginPageButton.setForeground(Color.WHITE);
         loginPageButton.setContentAreaFilled(false);
         loginPageButton.setBorderPainted(false);
         loginPageButton.setOpaque(false);
 
         //JButton for SignUp Link
-        JButton SignUpPageButton = new JButton("Signup");
-        SignUpPageButton.setBounds(50, 470, 300, 80);
-        SignUpPageButton.setBackground(new Color(27, 17, 14));
+        JButton SignUpPageButton = new JButton("");
+        SignUpPageButton.setBounds(565, 434, 200, 76);
         SignUpPageButton.setBorderPainted(false);
         SignUpPageButton.setForeground(Color.WHITE);
-        SignUpPageButton.setFont(new Font("Arial", Font.BOLD, 40));
+        SignUpPageButton.setContentAreaFilled(false);
+        SignUpPageButton.setBorderPainted(false);
+        SignUpPageButton.setOpaque(false);
 
 
         //Event actions defined for Login
@@ -77,7 +76,7 @@ public class HomeScreen extends JFrame{
     
     //Add Elements to the Frame
     add(loginPageButton);
-    //add(SignUpPageButton);
+    add(SignUpPageButton);
     //add(logoImageSetter);
     add(backgroundImageSetter);
     
