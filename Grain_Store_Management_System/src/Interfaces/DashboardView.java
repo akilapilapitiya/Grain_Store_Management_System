@@ -42,13 +42,14 @@ public class DashboardView extends JFrame{
 
         //JPanel for menu Box
         JPanel menuBox = new JPanel();
-        menuBox.setBounds(10, 121, 250, 530);
+        menuBox.setBounds(10, 10, 250, 640);
         menuBox.setBackground(Color.WHITE);
 
         //JPanel for Body Box
         JPanel bodyBox = new JPanel();
         bodyBox.setBounds(260, 10, 710, 640);
-        bodyBox.setBackground(new Color(237, 235, 235));
+        //bodyBox.setBackground(new Color(237, 235, 235));
+        bodyBox.setBackground(Color.WHITE);
 
         //JPanel for Title Box
         JPanel titleBox = new JPanel();
