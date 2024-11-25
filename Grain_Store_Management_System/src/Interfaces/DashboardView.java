@@ -43,7 +43,7 @@ public class DashboardView extends JFrame{
         //JPanel for menu Box
         JPanel menuBox = new JPanel();
         menuBox.setBounds(10, 121, 250, 530);
-        menuBox.setBackground(new Color(172, 145, 127));
+        menuBox.setBackground(Color.WHITE);
 
         //JPanel for Body Box
         JPanel bodyBox = new JPanel();
@@ -55,6 +55,7 @@ public class DashboardView extends JFrame{
         titleBox.setBounds(260, 10, 710, 75);
         titleBox.setBackground(new Color(172, 145, 127));
 
+
         //JLabel For Interface Title
         JLabel titleLabel = new JLabel("Dashboard");
         titleLabel.setBounds(310, 25, 400, 50);
@@ -62,14 +63,22 @@ public class DashboardView extends JFrame{
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
 
+        //JPanel for Dashboard Border Box
+        JPanel dashBoardBorderBox = new JPanel();
+        dashBoardBorderBox.setBounds(9, 139, 252, 52);
+        dashBoardBorderBox.setBackground(new Color(27, 17, 14));
         //Buttons defined for DashBoard
         JButton dashBoardButton = new JButton("Dashboard");
         dashBoardButton.setBounds(10, 140, 250, 50);
-        dashBoardButton.setBackground(new Color(237, 235, 235));
+        dashBoardButton.setBackground(Color.WHITE);
         dashBoardButton.setBorderPainted(false);
-        dashBoardButton.setForeground(Color.BLACK);
+        dashBoardButton.setForeground(new Color(27, 17, 14));
         dashBoardButton.setFont(new Font("Arial", Font.BOLD, 20));
 
+        //JPanel for Dashboard Border Box
+        JPanel availableBorderBox = new JPanel();
+        availableBorderBox.setBounds(9, 219, 202, 52);
+        availableBorderBox.setBackground(new Color(27, 17, 14));
         //Buttons defined for Stock Availability
         JButton availabilityButton = new JButton("Stock Availability");
         availabilityButton.setBounds(10, 220, 200, 50);
@@ -197,7 +206,9 @@ public class DashboardView extends JFrame{
         add(logoImageSetter);
         add(titleLabel);
         add(dashBoardButton);
+        add(dashBoardBorderBox);
         add(availabilityButton);
+        add(availableBorderBox);
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);

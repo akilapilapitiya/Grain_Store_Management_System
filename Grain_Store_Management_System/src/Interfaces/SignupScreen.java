@@ -9,11 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
 import java.awt.*;
 
 public class SignupScreen extends JFrame{
     public SignupScreen(){
+
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -64,15 +67,15 @@ public class SignupScreen extends JFrame{
         userMobileTextBox.setBounds(140, 380, 180, 40);
         userMobileTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
 
-         //Text Fields Defined for Password
-         JTextField userPasswordTextBox = new JTextField("Enter a Password");
-         userPasswordTextBox.setBounds(140, 440, 180, 40);
-         userPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
+        //Text Fields Defined for Password
+        JTextField userPasswordTextBox = new JTextField("Enter a Password");
+        userPasswordTextBox.setBounds(140, 440, 180, 40);
+        userPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
 
-         //Text Fields Defined for Confirm Password
-         JTextField userConfirmPasswordTextBox = new JTextField("Confirm Password");
-         userConfirmPasswordTextBox.setBounds(140, 500, 180, 40);
-         userConfirmPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
+        //Text Fields Defined for Confirm Password
+        JTextField userConfirmPasswordTextBox = new JTextField("Confirm Password");
+        userConfirmPasswordTextBox.setBounds(140, 500, 180, 40);
+        userConfirmPasswordTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
         
          //Buttons defined for Submit
         JButton submitButton = new JButton("Submit");
@@ -88,6 +91,74 @@ public class SignupScreen extends JFrame{
         backButton.setForeground(Color.white);
         backButton.setFont(new Font("Arial", Font.BOLD, 16));
 
+        // Add a FocusListener for userNameTextBox
+        userNameTextBox.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                // Add Focus
+                userNameTextBox.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Lose Focus
+                if (userNameTextBox.getText().isEmpty()) {
+                    userNameTextBox.setText("Enter your Name");
+                }
+            }
+        });
+
+        // Add a FocusListener for userMobileTextBox
+        userMobileTextBox.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                // Add Focus
+                userMobileTextBox.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Lose Focus
+                if (userMobileTextBox.getText().isEmpty()) {
+                    userMobileTextBox.setText("Enter your Mobile Number");
+                }
+            }
+        });
+
+        // Add a FocusListener for userPasswordTextBox 
+        userPasswordTextBox .addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                // Add Focus
+                userPasswordTextBox .setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Lose Focus
+                if (userPasswordTextBox .getText().isEmpty()) {
+                    userPasswordTextBox .setText("Enter a Password");
+                }
+            }
+        });
+
+        // Add a FocusListener for userConfirmPasswordTextBox
+        userConfirmPasswordTextBox .addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                // Add Focus
+                userConfirmPasswordTextBox.setText("");
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                // Lose Focus
+                if (userConfirmPasswordTextBox .getText().isEmpty()) {
+                    userConfirmPasswordTextBox.setText("Confirm Password");
+                }
+            }
+        });
+
         //Event actions defined for backButton
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -99,7 +170,16 @@ public class SignupScreen extends JFrame{
         //Event actions defined for Submit Button
         submitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                System.out.println("Hello");
+
+                //Variables Defined
+                String userName = userNameTextBox.getText();
+                String phoneNumber = userMobileTextBox.getText();
+                String passwordDefined = userPasswordTextBox.getText();
+                String confirmPasswordDefined = userConfirmPasswordTextBox.getText();
+                
+                if((userName == "Enter your Name")||(phoneNumber == "Enter your Mobile Number")||(passwordDefined == "Enter a Password")){
+                        System.out.println("Hello");
+                }
             }
         });
 
