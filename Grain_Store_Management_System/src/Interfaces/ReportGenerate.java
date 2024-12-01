@@ -101,6 +101,14 @@ public class ReportGenerate extends JFrame{
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
 
+        //Buttons defined for manage Warehouses
+        JButton manageWarehouseButton = new JButton("Manage Warehouses");
+        manageWarehouseButton.setBounds(10, 460, 200, 50);
+        manageWarehouseButton.setBackground(new Color(237, 235, 235));
+        manageWarehouseButton.setForeground(Color.BLACK);
+        manageWarehouseButton.setFont(new Font("Arial", Font.BOLD, 20));
+        manageWarehouseButton.setBorder(border);
+
         //Buttons defined for Logout
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(10, 570, 200, 50);
@@ -178,11 +186,19 @@ public class ReportGenerate extends JFrame{
             }
         });
 
-        //Event actions defined for Dashboard Button
+        //Event actions defined for manage Stocks Button
         manageStocksButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
                 new ManageStocks().setVisible(true);
+            }
+        });
+
+        //Event actions defined for manage Warehouse Button
+        manageWarehouseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageWarehouse().setVisible(true);
             }
         });
 
@@ -201,6 +217,7 @@ public class ReportGenerate extends JFrame{
         add(availabilityButton);
         add(reportButton);
         add(manageStocksButton);
+        add(manageWarehouseButton);
         add(logoutButton);
         add(scopeLabel);
         add(cropLabel);

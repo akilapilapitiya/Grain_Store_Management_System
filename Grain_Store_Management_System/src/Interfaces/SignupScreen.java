@@ -108,11 +108,11 @@ public class SignupScreen extends JFrame{
         userIDTextBox.setFont(new Font("Arial", Font.ITALIC, 13));
 
         // Create a dropdown list for Warehouse Type
-        
-        JComboBox<String> dropdown = new JComboBox<>();
+        String[] options = {"Goverment Sector", "Public Sector"};
+        JComboBox<String> dropdown = new JComboBox<>(options);
         dropdown.setBounds(140, 540, 180, 40);
         dropdown.setBackground(Color.WHITE);
-        fetchWarehouseIDs(dropdown);
+        //fetchWarehouseIDs(dropdown);
         
         
 

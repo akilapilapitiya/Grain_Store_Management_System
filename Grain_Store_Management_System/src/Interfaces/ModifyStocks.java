@@ -20,8 +20,8 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class AddNewStocks extends JFrame{
-    public AddNewStocks(){
+public class ModifyStocks extends JFrame{
+    public ModifyStocks(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -69,7 +69,7 @@ public class AddNewStocks extends JFrame{
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Add New Stocks");
+        JLabel titleLabel = new JLabel("Modify Stocks");
         titleLabel.setBounds(310, 15, 600, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
@@ -130,24 +130,33 @@ public class AddNewStocks extends JFrame{
 
         //TextBox defined for StockName
         JTextField StockNameTextBox = new JTextField("Enter Stock Name");
-        StockNameTextBox.setBounds(620, 160, 240, 40);
+        StockNameTextBox.setBounds(360, 220, 240, 40);
         StockNameTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
 
         //TextBox defined for StockName
         JTextField StockQuantityTextBox = new JTextField("Enter Stock Quantity");
-        StockQuantityTextBox.setBounds(360, 220, 240, 40);
+        StockQuantityTextBox.setBounds(620, 220, 240, 40);
         StockQuantityTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
         
         //Select Crop store Sector
         String[] options = {"Goverment Sector", "Public Sector"};
         JComboBox<String> dropdown = new JComboBox<>(options);
-        dropdown.setBounds(620, 220, 240, 40);
+        dropdown.setBounds(360, 300, 240, 40);
         dropdown.setFont(new Font("Arial", Font.ITALIC, 20));
         dropdown.setBackground(Color.WHITE);
 
+        //Search Item Button
+        JButton searchItemItemButton = new JButton("Search Item");
+        searchItemItemButton.setBounds(620, 160, 200, 50);
+        searchItemItemButton.setBackground(new Color(237, 235, 235));
+        searchItemItemButton.setForeground(Color.BLACK);
+        searchItemItemButton.setFont(new Font("Arial", Font.BOLD, 20));
+        searchItemItemButton.setBorder(border);
+
+
         //Save item button
-        JButton saveItemButton = new JButton("Add Item");
-        saveItemButton.setBounds(360, 300, 200, 50);
+        JButton saveItemButton = new JButton("Modify Item");
+        saveItemButton.setBounds(620, 300, 200, 50);
         saveItemButton.setBackground(new Color(237, 235, 235));
         saveItemButton.setForeground(Color.BLACK);
         saveItemButton.setFont(new Font("Arial", Font.BOLD, 20));
@@ -303,6 +312,7 @@ public class AddNewStocks extends JFrame{
         add(StockIDTextBox);
         add(StockNameTextBox);
         add(StockQuantityTextBox);
+        add(searchItemItemButton);
         add(saveItemButton);
         add(dropdown);
         add(scrollPane);
@@ -311,5 +321,4 @@ public class AddNewStocks extends JFrame{
         //add(bodyBox);
         add(backgroundImageSetter);
     } 
-
 }

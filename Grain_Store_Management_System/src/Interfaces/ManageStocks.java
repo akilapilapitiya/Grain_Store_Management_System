@@ -62,7 +62,7 @@ public class ManageStocks extends JFrame{
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Sell Existing Stocks");
+        JLabel titleLabel = new JLabel("Manage Stocks");
         titleLabel.setBounds(310, 15, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
@@ -100,6 +100,14 @@ public class ManageStocks extends JFrame{
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
 
+        //Buttons defined for manage Warehouses
+        JButton manageWarehouseButton = new JButton("Manage Warehouses");
+        manageWarehouseButton.setBounds(10, 460, 200, 50);
+        manageWarehouseButton.setBackground(new Color(237, 235, 235));
+        manageWarehouseButton.setForeground(Color.BLACK);
+        manageWarehouseButton.setFont(new Font("Arial", Font.BOLD, 20));
+        manageWarehouseButton.setBorder(border);
+
          //Buttons defined for Logout
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(10, 570, 200, 50);
@@ -116,9 +124,17 @@ public class ManageStocks extends JFrame{
         addIconButton.setForeground(Color.WHITE);
         addIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
+        //Buttons defined for Modify stocks
+        JButton modifyIconButton = new JButton("Modify Existing Stocks");
+        modifyIconButton.setBounds(420, 300, 400, 80);
+        modifyIconButton.setBackground(new Color(172, 145, 127));
+        modifyIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
+        modifyIconButton.setForeground(Color.WHITE);
+        modifyIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+
         //Buttons defined for Removing stocks
-        JButton removeIconButton = new JButton("Sell Existing Stocks");
-        removeIconButton.setBounds(420, 300, 400, 80);
+        JButton removeIconButton = new JButton("Remove Existing Stocks");
+        removeIconButton.setBounds(420, 440, 400, 80);
         removeIconButton.setBackground(new Color(172, 145, 127));
         removeIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
         removeIconButton.setForeground(Color.WHITE);
@@ -149,11 +165,19 @@ public class ManageStocks extends JFrame{
             }
         });
 
-        //Event actions defined for Dashboard Button
+        //Event actions defined for manage Stocks Button
         manageStocksButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
                 new ManageStocks().setVisible(true);
+            }
+        });
+
+        //Event actions defined for manage Warehouse Button
+        manageWarehouseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageWarehouse().setVisible(true);
             }
         });
 
@@ -173,6 +197,14 @@ public class ManageStocks extends JFrame{
             }
         });
 
+        //Event actions defined for Modify Stocks
+        modifyIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ModifyStocks().setVisible(true);
+            }
+        });
+
         //Event actions defined for Remove Stocks
         removeIconButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -188,8 +220,10 @@ public class ManageStocks extends JFrame{
         add(availabilityButton);
         add(reportButton);
         add(manageStocksButton);
+        add(manageWarehouseButton);
         add(logoutButton);
         add(addIconButton);
+        add(modifyIconButton);
         add(removeIconButton);
         add(titleBox);
         add(menuBox);

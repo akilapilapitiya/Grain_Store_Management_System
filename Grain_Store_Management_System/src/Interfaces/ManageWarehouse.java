@@ -4,24 +4,17 @@ package Interfaces;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.border.LineBorder;
 
-public class AddNewStocks extends JFrame{
-    public AddNewStocks(){
+public class ManageWarehouse extends JFrame{
+    public ManageWarehouse(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -69,8 +62,8 @@ public class AddNewStocks extends JFrame{
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Add New Stocks");
-        titleLabel.setBounds(310, 15, 600, 50);
+        JLabel titleLabel = new JLabel("Manage Warehouses");
+        titleLabel.setBounds(310, 15, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
@@ -101,16 +94,16 @@ public class AddNewStocks extends JFrame{
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
-        manageStocksButton.setBounds(10, 380, 250, 50);
-        manageStocksButton.setBackground(Color.WHITE);
+        manageStocksButton.setBounds(10, 380, 200, 50);
+        manageStocksButton.setBackground(new Color(237, 235, 235));
         manageStocksButton.setForeground(Color.BLACK);
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
 
         //Buttons defined for manage Warehouses
         JButton manageWarehouseButton = new JButton("Manage Warehouses");
-        manageWarehouseButton.setBounds(10, 460, 200, 50);
-        manageWarehouseButton.setBackground(new Color(237, 235, 235));
+        manageWarehouseButton.setBounds(10, 460, 250, 50);
+        manageWarehouseButton.setBackground(Color.WHITE);
         manageWarehouseButton.setForeground(Color.BLACK);
         manageWarehouseButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageWarehouseButton.setBorder(border);
@@ -123,125 +116,30 @@ public class AddNewStocks extends JFrame{
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         logoutButton.setBorder(border);
 
-        //TextBox defined for StockId
-        JTextField StockIDTextBox = new JTextField("Enter Stock ID");
-        StockIDTextBox.setBounds(360, 160, 240, 40);
-        StockIDTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
+        //Buttons defined for Add New Stocks
+        JButton addIconButton = new JButton("Add New Warehouse");
+        addIconButton.setBounds(420, 160, 400, 80);
+        addIconButton.setBackground(new Color(172, 145, 127));
+        addIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
+        addIconButton.setForeground(Color.WHITE);
+        addIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
-        //TextBox defined for StockName
-        JTextField StockNameTextBox = new JTextField("Enter Stock Name");
-        StockNameTextBox.setBounds(620, 160, 240, 40);
-        StockNameTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
+        //Buttons defined for Modify stocks
+        JButton modifyIconButton = new JButton("Modify Existing Warehouse");
+        modifyIconButton.setBounds(420, 300, 400, 80);
+        modifyIconButton.setBackground(new Color(172, 145, 127));
+        modifyIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
+        modifyIconButton.setForeground(Color.WHITE);
+        modifyIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
-        //TextBox defined for StockName
-        JTextField StockQuantityTextBox = new JTextField("Enter Stock Quantity");
-        StockQuantityTextBox.setBounds(360, 220, 240, 40);
-        StockQuantityTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
+        //Buttons defined for Removing stocks
+        JButton removeIconButton = new JButton("Remove Existing Warehouse");
+        removeIconButton.setBounds(420, 440, 400, 80);
+        removeIconButton.setBackground(new Color(172, 145, 127));
+        removeIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
+        removeIconButton.setForeground(Color.WHITE);
+        removeIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
-        //Select Crop store Sector
-        String[] options = {"Goverment Sector", "Public Sector"};
-        JComboBox<String> dropdown = new JComboBox<>(options);
-        dropdown.setBounds(620, 220, 240, 40);
-        dropdown.setFont(new Font("Arial", Font.ITALIC, 20));
-        dropdown.setBackground(Color.WHITE);
-
-        //Save item button
-        JButton saveItemButton = new JButton("Add Item");
-        saveItemButton.setBounds(360, 300, 200, 50);
-        saveItemButton.setBackground(new Color(237, 235, 235));
-        saveItemButton.setForeground(Color.BLACK);
-        saveItemButton.setFont(new Font("Arial", Font.BOLD, 20));
-        saveItemButton.setBorder(border);
-
-
-        //Table Column Headings Defined
-        String []columnNames = {"Item ID", "Name", "Quantity (kgs)", "PPUs"};
-        Object[][] StoreArray = {
-            {"G001", "Rice", 10400, 250},
-            {"G002", "Barley", 5000, 300},
-            {"G003", "Corn", 7800, 400}
-        };
-
-        // Create a table model
-        DefaultTableModel model = new DefaultTableModel(StoreArray, columnNames);
-
-        // Create a JTable using the model
-        JTable viewTable = new JTable(model);
-
-        //Table Appearance Customizations
-        viewTable.setFont(new Font("Arial",Font.PLAIN, 14));
-        viewTable.setRowHeight(30);
-        viewTable.setBackground(new Color(237, 235, 235));
-        viewTable.setForeground(Color.BLACK);
-        viewTable.setGridColor(Color.DARK_GRAY);
-        viewTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
-        viewTable.getTableHeader().setBackground(new Color(172, 145, 127));
-        viewTable.getTableHeader().setForeground(Color.WHITE);
-
-        //Column Width Customizations
-        viewTable.getColumnModel().getColumn(0).setPreferredWidth(30); 
-        viewTable.getColumnModel().getColumn(1).setPreferredWidth(30);
-        viewTable.getColumnModel().getColumn(2).setPreferredWidth(30);
-        viewTable.getColumnModel().getColumn(3).setPreferredWidth(30);
-        
-
-        // Add the table to a JScrollPane for scroll functionality
-        JScrollPane scrollPane = new JScrollPane(viewTable);
-        scrollPane.setBounds(300, 390, 600, 150);
-        scrollPane.setBackground(new Color(237, 235, 235));
-        scrollPane.getViewport().setBackground(new Color(237, 235, 235));
-        scrollPane.setBorder(new EmptyBorder(0,0,0,0));
-
-        // Add a FocusListener for StockIDTextBox
-        StockIDTextBox.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                // Add Focus
-                StockIDTextBox.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                // Lose Focus
-                if (StockIDTextBox.getText().isEmpty()) {
-                    StockIDTextBox.setText("Enter Stock ID");
-                }
-            }
-        });
-
-        // Add a FocusListener for StockNameTextBox
-        StockNameTextBox.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                // Add Focus
-                StockNameTextBox.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                // Lose Focus
-                if (StockNameTextBox.getText().isEmpty()) {
-                    StockNameTextBox.setText("Enter Stock Name");
-                }
-            }
-        });
-
-        // Add a FocusListener for StockQuantityTextBox
-        StockQuantityTextBox.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                // Add Focus
-                StockQuantityTextBox.setText("");
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                // Lose Focus
-                if (StockQuantityTextBox.getText().isEmpty()) {
-                    StockQuantityTextBox.setText("Enter Stock Quantity");
-                }
-            }
-        });
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
@@ -291,6 +189,30 @@ public class AddNewStocks extends JFrame{
             }
         });
 
+        //Event actions defined for Add Warehouses
+        addIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new AddNewWarehouses().setVisible(true);
+            }
+        });
+
+        //Event actions defined for Modify Warehouses
+        modifyIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ModifyWarehouses().setVisible(true);
+            }
+        });
+
+        //Event actions defined for Remove Warehouses
+        removeIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new RemoveExistingWarehouses().setVisible(true);
+            }
+        });
+
         //Add Elements to the Frame
         add(logoImageSetter);
         add(titleLabel);
@@ -300,16 +222,13 @@ public class AddNewStocks extends JFrame{
         add(manageStocksButton);
         add(manageWarehouseButton);
         add(logoutButton);
-        add(StockIDTextBox);
-        add(StockNameTextBox);
-        add(StockQuantityTextBox);
-        add(saveItemButton);
-        add(dropdown);
-        add(scrollPane);
+        add(addIconButton);
+        add(modifyIconButton);
+        add(removeIconButton);
         add(titleBox);
         add(menuBox);
         //add(bodyBox);
         add(backgroundImageSetter);
-    } 
+    }   
 
 }

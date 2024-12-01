@@ -103,6 +103,14 @@ public class GovernmentAvailability extends JFrame{
         manageStocksButton.setForeground(Color.BLACK);
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
+        
+        //Buttons defined for manage Warehouses
+        JButton manageWarehouseButton = new JButton("Manage Warehouses");
+        manageWarehouseButton.setBounds(10, 460, 200, 50);
+        manageWarehouseButton.setBackground(new Color(237, 235, 235));
+        manageWarehouseButton.setForeground(Color.BLACK);
+        manageWarehouseButton.setFont(new Font("Arial", Font.BOLD, 20));
+        manageWarehouseButton.setBorder(border);
 
          //Buttons defined for Logout
         JButton logoutButton = new JButton("Logout");
@@ -114,11 +122,11 @@ public class GovernmentAvailability extends JFrame{
         
         
         //Table Column Headings Defined
-        String []columnNames = {"Item ID", "Name", "Quantity (kgs)", "PPUs", "Last Updated"};
+        String []columnNames = {"Item ID", "Name", "Quantity (kgs)", "PPUs"};
         Object[][] StoreArray = {
-            {"G001", "Rice", 10400, 250,"12-10-24"},
-            {"G002", "Barley", 5000, 300,"20-10-24"},
-            {"G003", "Corn", 7800, 400, "25-10-24"}
+            {"G001", "Rice", 10400, 250},
+            {"G002", "Barley", 5000, 300},
+            {"G003", "Corn", 7800, 400}
         };
 
         // Create a table model
@@ -142,7 +150,7 @@ public class GovernmentAvailability extends JFrame{
         viewTable.getColumnModel().getColumn(1).setPreferredWidth(50);
         viewTable.getColumnModel().getColumn(2).setPreferredWidth(50);
         viewTable.getColumnModel().getColumn(3).setPreferredWidth(50);
-        viewTable.getColumnModel().getColumn(4).setPreferredWidth(50);
+        
 
         // Add the table to a JScrollPane for scroll functionality
         JScrollPane scrollPane = new JScrollPane(viewTable);
@@ -175,11 +183,19 @@ public class GovernmentAvailability extends JFrame{
             }
         });
 
-        //Event actions defined for Dashboard Button
+        //Event actions defined for manage Stocks Button
         manageStocksButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
                 new ManageStocks().setVisible(true);
+            }
+        });
+
+        //Event actions defined for manage Warehouse Button
+        manageWarehouseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageWarehouse().setVisible(true);
             }
         });
 
@@ -198,6 +214,7 @@ public class GovernmentAvailability extends JFrame{
         add(availabilityButton);
         add(reportButton);
         add(manageStocksButton);
+        add(manageWarehouseButton);
         add(logoutButton);
         add(scrollPane);
         add(titleBox);
