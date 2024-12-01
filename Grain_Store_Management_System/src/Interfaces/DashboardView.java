@@ -1,5 +1,6 @@
 package Interfaces;
 
+import javax.swing.BorderFactory;
 //Imports
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -59,6 +60,7 @@ public class DashboardView extends JFrame{
         titleBox.setBounds(260, 0, 740, 75);
         titleBox.setBackground(new Color(172, 145, 127));
 
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
         JLabel titleLabel = new JLabel("Dashboard");
@@ -67,59 +69,51 @@ public class DashboardView extends JFrame{
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
 
-        //JPanel for Dashboard Border Box
-        JPanel dashBoardBorderBox = new JPanel();
-        dashBoardBorderBox.setBounds(9, 139, 252, 52);
-        dashBoardBorderBox.setBackground(new Color(27, 17, 14));
         //Buttons defined for DashBoard
         JButton dashBoardButton = new JButton("Dashboard");
         dashBoardButton.setBounds(10, 140, 250, 50);
         dashBoardButton.setBackground(Color.WHITE);
-        dashBoardButton.setBorderPainted(false);
         dashBoardButton.setForeground(new Color(27, 17, 14));
         dashBoardButton.setFont(new Font("Arial", Font.BOLD, 20));
+        dashBoardButton.setBorder(border);
 
-        //JPanel for Dashboard Border Box
-        JPanel availableBorderBox = new JPanel();
-        availableBorderBox.setBounds(9, 219, 202, 52);
-        availableBorderBox.setBackground(new Color(27, 17, 14));
         //Buttons defined for Stock Availability
         JButton availabilityButton = new JButton("Stock Availability");
         availabilityButton.setBounds(10, 220, 200, 50);
         availabilityButton.setBackground(new Color(237, 235, 235));
-        availabilityButton.setBorderPainted(false);
         availabilityButton.setForeground(Color.BLACK);
         availabilityButton.setFont(new Font("Arial", Font.BOLD, 20));
+        availabilityButton.setBorder(border);
 
         //Buttons defined for Report Generation
         JButton reportButton = new JButton("Report");
         reportButton.setBounds(10, 300, 200, 50);
         reportButton.setBackground(new Color(237, 235, 235));
-        reportButton.setBorderPainted(false);
         reportButton.setForeground(Color.BLACK);
         reportButton.setFont(new Font("Arial", Font.BOLD, 20));
+        reportButton.setBorder(border);
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
         manageStocksButton.setBounds(10, 380, 200, 50);
         manageStocksButton.setBackground(new Color(237, 235, 235));
-        manageStocksButton.setBorderPainted(false);
         manageStocksButton.setForeground(Color.BLACK);
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
+        manageStocksButton.setBorder(border);
 
          //Buttons defined for Logout
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(10, 570, 200, 50);
         logoutButton.setBackground(new Color(237, 235, 235));
-        logoutButton.setBorderPainted(false);
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
+        logoutButton.setBorder(border);
 
         //Buttons defined for DashBoard
         JButton availabilityIconButton = new JButton("Check Stocks Availability");
         availabilityIconButton.setBounds(420, 160, 400, 80);
         availabilityIconButton.setBackground(new Color(172, 145, 127));
-        availabilityIconButton.setBorder(new LineBorder(new Color(102,51,0), 4)); 
+        availabilityIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
         availabilityIconButton.setForeground(Color.WHITE);
         availabilityIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
@@ -127,7 +121,7 @@ public class DashboardView extends JFrame{
         JButton getReportButton = new JButton("Generate Reports");
         getReportButton.setBounds(420, 300, 400, 80);
         getReportButton.setBackground(new Color(172, 145, 127));
-        getReportButton.setBorder(new LineBorder(new Color(102,51,0), 4)); 
+        getReportButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
         getReportButton.setForeground(Color.WHITE);
         getReportButton.setFont(new Font("Arial", Font.BOLD, 25));
         
@@ -136,7 +130,7 @@ public class DashboardView extends JFrame{
         JButton manageStockIconButton = new JButton("Manage Stocks");
         manageStockIconButton.setBounds(420, 440, 400, 80);
         manageStockIconButton.setBackground(new Color(172, 145, 127));
-        manageStockIconButton.setBorder(new LineBorder(new Color(102,51,0), 4)); 
+        manageStockIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
         manageStockIconButton.setForeground(Color.WHITE);
         manageStockIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
@@ -210,9 +204,7 @@ public class DashboardView extends JFrame{
         add(logoImageSetter);
         add(titleLabel);
         add(dashBoardButton);
-        add(dashBoardBorderBox);
         add(availabilityButton);
-        add(availableBorderBox);
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);

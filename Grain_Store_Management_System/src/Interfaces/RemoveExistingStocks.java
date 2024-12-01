@@ -1,20 +1,19 @@
 package Interfaces;
 
-import javax.swing.BorderFactory;
 //Imports
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener; 
+import java.awt.event.ActionListener;
+import javax.swing.border.Border;
 
-public class ReportGenerate extends JFrame{
-    public ReportGenerate(){
+public class RemoveExistingStocks extends JFrame{
+    public RemoveExistingStocks(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -27,7 +26,7 @@ public class ReportGenerate extends JFrame{
         Image image = iconImage.getImage();
         setIconImage(image);
 
-        //JFrame Background Image
+       //JFrame Background Image
        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("Assets/sideView.png"));
        Image imageSet = backgroundImageSet.getImage();
        Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
@@ -62,8 +61,8 @@ public class ReportGenerate extends JFrame{
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Reports");
-        titleLabel.setBounds(310, 15, 400, 50);
+        JLabel titleLabel = new JLabel("Add New Stocks");
+        titleLabel.setBounds(310, 15, 600, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
@@ -86,16 +85,16 @@ public class ReportGenerate extends JFrame{
 
         //Buttons defined for Report Generation
         JButton reportButton = new JButton("Report");
-        reportButton.setBounds(10, 300, 250, 50);
-        reportButton.setBackground(Color.WHITE);
+        reportButton.setBounds(10, 300, 200, 50);
+        reportButton.setBackground(new Color(237, 235, 235));
         reportButton.setForeground(Color.BLACK);
         reportButton.setFont(new Font("Arial", Font.BOLD, 20));
         reportButton.setBorder(border);
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
-        manageStocksButton.setBounds(10, 380, 200, 50);
-        manageStocksButton.setBackground(new Color(237, 235, 235));
+        manageStocksButton.setBounds(10, 380, 250, 50);
+        manageStocksButton.setBackground(Color.WHITE);
         manageStocksButton.setForeground(Color.BLACK);
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
@@ -107,7 +106,7 @@ public class ReportGenerate extends JFrame{
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         logoutButton.setBorder(border);
-        
+      
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
@@ -151,8 +150,8 @@ public class ReportGenerate extends JFrame{
 
         //Add Elements to the Frame
         add(logoImageSetter);
-        add(dashBoardButton);
         add(titleLabel);
+        add(dashBoardButton);
         add(availabilityButton);
         add(reportButton);
         add(manageStocksButton);
@@ -161,5 +160,6 @@ public class ReportGenerate extends JFrame{
         add(menuBox);
         //add(bodyBox);
         add(backgroundImageSetter);
-    }   
+    }
+
 }

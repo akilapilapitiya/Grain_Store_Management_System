@@ -1,6 +1,7 @@
 package Interfaces;
 
 //Imports
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -8,7 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener; 
+import java.awt.event.ActionListener;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 public class ManageStocks extends JFrame{
     public ManageStocks(){
@@ -24,40 +27,43 @@ public class ManageStocks extends JFrame{
         Image image = iconImage.getImage();
         setIconImage(image);
 
-        //JFrame Background Image
-        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("Assets/sideView.png"));
-        Image imageSet = backgroundImageSet.getImage();
-        Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
-        ImageIcon backgroundImage = new ImageIcon(resizedImage);
-        JLabel backgroundImageSetter = new JLabel(backgroundImage);
-        backgroundImageSetter.setBounds(0, 0, 1000, 700);
+       //JFrame Background Image
+       ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("Assets/sideView.png"));
+       Image imageSet = backgroundImageSet.getImage();
+       Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
+       ImageIcon backgroundImage = new ImageIcon(resizedImage);
+       JLabel backgroundImageSetter = new JLabel(backgroundImage);
+       backgroundImageSetter.setBounds(100, 0, 1000, 700);
 
-        //JFrame Logo Image
-        ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
-        Image logoSet = logoImageSet.getImage();
-        Image resizedLogoImage = logoSet.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
-        ImageIcon logoImage = new ImageIcon(resizedLogoImage);
-        JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(40, 20, 200, 100);
+       //JFrame Logo Image
+       ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
+       Image logoSet = logoImageSet.getImage();
+       Image resizedLogoImage = logoSet.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+       ImageIcon logoImage = new ImageIcon(resizedLogoImage);
+       JLabel logoImageSetter = new JLabel(logoImage);
+       logoImageSetter.setBounds(40, 0, 200, 100);
 
-        //JPanel for menu Box
-        JPanel menuBox = new JPanel();
-        menuBox.setBounds(10, 121, 250, 530);
-        menuBox.setBackground(new Color(172, 145, 127));
+       //JPanel for menu Box
+       JPanel menuBox = new JPanel();
+       menuBox.setBounds(10, 10, 250, 640);
+       menuBox.setBackground(Color.WHITE);
 
-        //JPanel for Body Box
-        JPanel bodyBox = new JPanel();
-        bodyBox.setBounds(260, 10, 710, 640);
-        bodyBox.setBackground(new Color(237, 235, 235));
+       //JPanel for Body Box
+       JPanel bodyBox = new JPanel();
+       bodyBox.setBounds(260, 10, 710, 640);
+       //bodyBox.setBackground(new Color(237, 235, 235));
+       bodyBox.setBackground(Color.WHITE);
 
-        //JPanel for Title Box
-        JPanel titleBox = new JPanel();
-        titleBox.setBounds(260, 10, 710, 75);
-        titleBox.setBackground(new Color(172, 145, 127));
+       //JPanel for Title Box
+       JPanel titleBox = new JPanel();
+       titleBox.setBounds(260, 0, 740, 75);
+       titleBox.setBackground(new Color(172, 145, 127));
+
+        Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Manage Stocks");
-        titleLabel.setBounds(310, 25, 400, 50);
+        JLabel titleLabel = new JLabel("Sell Existing Stocks");
+        titleLabel.setBounds(310, 15, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
         titleLabel.setFont(new Font("Arial", Font.BOLD, 40));
@@ -66,41 +72,57 @@ public class ManageStocks extends JFrame{
         JButton dashBoardButton = new JButton("Dashboard");
         dashBoardButton.setBounds(10, 140, 200, 50);
         dashBoardButton.setBackground(new Color(237, 235, 235));
-        dashBoardButton.setBorderPainted(false);
-        dashBoardButton.setForeground(Color.BLACK);
+        dashBoardButton.setForeground(new Color(27, 17, 14));
         dashBoardButton.setFont(new Font("Arial", Font.BOLD, 20));
+        dashBoardButton.setBorder(border);
 
         //Buttons defined for Stock Availability
         JButton availabilityButton = new JButton("Stock Availability");
         availabilityButton.setBounds(10, 220, 200, 50);
         availabilityButton.setBackground(new Color(237, 235, 235));
-        availabilityButton.setBorderPainted(false);
         availabilityButton.setForeground(Color.BLACK);
         availabilityButton.setFont(new Font("Arial", Font.BOLD, 20));
+        availabilityButton.setBorder(border);
 
         //Buttons defined for Report Generation
         JButton reportButton = new JButton("Report");
         reportButton.setBounds(10, 300, 200, 50);
         reportButton.setBackground(new Color(237, 235, 235));
-        reportButton.setBorderPainted(false);
         reportButton.setForeground(Color.BLACK);
         reportButton.setFont(new Font("Arial", Font.BOLD, 20));
+        reportButton.setBorder(border);
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
         manageStocksButton.setBounds(10, 380, 250, 50);
-        manageStocksButton.setBackground(new Color(237, 235, 235));
-        manageStocksButton.setBorderPainted(false);
+        manageStocksButton.setBackground(Color.WHITE);
         manageStocksButton.setForeground(Color.BLACK);
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
+        manageStocksButton.setBorder(border);
 
-        //Buttons defined for Logout
+         //Buttons defined for Logout
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(10, 570, 200, 50);
         logoutButton.setBackground(new Color(237, 235, 235));
-        logoutButton.setBorderPainted(false);
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
+        logoutButton.setBorder(border);
+
+        //Buttons defined for Add New Stocks
+        JButton addIconButton = new JButton("Add New Stocks");
+        addIconButton.setBounds(420, 160, 400, 80);
+        addIconButton.setBackground(new Color(172, 145, 127));
+        addIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
+        addIconButton.setForeground(Color.WHITE);
+        addIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+
+        //Buttons defined for Removing stocks
+        JButton removeIconButton = new JButton("Sell Existing Stocks");
+        removeIconButton.setBounds(420, 300, 400, 80);
+        removeIconButton.setBackground(new Color(172, 145, 127));
+        removeIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
+        removeIconButton.setForeground(Color.WHITE);
+        removeIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
 
         //Event actions defined for Dashboard Button
@@ -143,6 +165,22 @@ public class ManageStocks extends JFrame{
             }
         });
 
+        //Event actions defined for Add Stocks
+        addIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new AddNewStocks().setVisible(true);
+            }
+        });
+
+        //Event actions defined for Remove Stocks
+        removeIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new RemoveExistingStocks().setVisible(true);
+            }
+        });
+
         //Add Elements to the Frame
         add(logoImageSetter);
         add(titleLabel);
@@ -151,9 +189,11 @@ public class ManageStocks extends JFrame{
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);
+        add(addIconButton);
+        add(removeIconButton);
         add(titleBox);
         add(menuBox);
-        add(bodyBox);
+        //add(bodyBox);
         add(backgroundImageSetter);
     }   
 }
