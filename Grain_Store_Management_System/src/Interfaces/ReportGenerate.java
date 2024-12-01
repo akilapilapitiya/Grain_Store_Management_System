@@ -4,6 +4,8 @@ import javax.swing.BorderFactory;
 //Imports
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -100,14 +102,48 @@ public class ReportGenerate extends JFrame{
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
 
-         //Buttons defined for Logout
+        //Buttons defined for Logout
         JButton logoutButton = new JButton("Logout");
         logoutButton.setBounds(10, 570, 200, 50);
         logoutButton.setBackground(new Color(237, 235, 235));
         logoutButton.setForeground(Color.BLACK);
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         logoutButton.setBorder(border);
-        
+
+        //JLabel For Scope Selection
+        JLabel scopeLabel = new JLabel("Select the Desired Field");
+        scopeLabel.setBounds(420, 100, 400, 20);
+        scopeLabel.setForeground(Color.BLACK);
+        scopeLabel.setFont(new Font("Arial", Font.BOLD, 20));
+
+        //Drop Down List to Select if private or goverment
+        String[] options = {"Private Stocks", "Goverment Stocks", "Overall Stocks"};
+        JComboBox<String> dropdown = new JComboBox<>(options);
+        dropdown.setBounds(420, 140, 200, 20);
+
+        //JLabel For Crop Selection
+        JLabel cropLabel = new JLabel("Select Crops");
+        cropLabel.setBounds(420, 200, 400, 20);
+        cropLabel.setForeground(Color.BLACK);
+        cropLabel.setFont(new Font("Arial", Font.BOLD, 20));
+
+        //Checkboxes for crops
+        JCheckBox checkbox1 = new JCheckBox("Rice");
+        JCheckBox checkbox2 = new JCheckBox("Corn");
+        JCheckBox checkbox3 = new JCheckBox("Barley");
+        JCheckBox checkbox4 = new JCheckBox("Mustard");
+        checkbox1.setBounds(420, 240, 100, 20);
+        checkbox2.setBounds(420, 260, 100, 20);
+        checkbox3.setBounds(420, 280, 100, 20);
+        checkbox4.setBounds(420, 300, 100, 20);
+
+        //Buttons defined for Report Download
+        JButton downloadButton = new JButton("Download Report");
+        downloadButton.setBounds(420, 340, 200, 40);
+        downloadButton.setBackground(new Color(237, 235, 235));
+        downloadButton.setForeground(Color.BLACK);
+        downloadButton.setFont(new Font("Arial", Font.BOLD, 18));
+        downloadButton.setBorder(border);
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
@@ -157,6 +193,14 @@ public class ReportGenerate extends JFrame{
         add(reportButton);
         add(manageStocksButton);
         add(logoutButton);
+        add(scopeLabel);
+        add(cropLabel);
+        add(checkbox1);
+        add(checkbox2);
+        add(checkbox3);
+        add(checkbox4);
+        add(dropdown);
+        add(downloadButton);
         add(titleBox);
         add(menuBox);
         //add(bodyBox);
