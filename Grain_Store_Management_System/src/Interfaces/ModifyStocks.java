@@ -137,6 +137,13 @@ public class ModifyStocks extends JFrame{
         JTextField StockQuantityTextBox = new JTextField("Enter Stock Quantity");
         StockQuantityTextBox.setBounds(620, 220, 240, 40);
         StockQuantityTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
+
+        //Select for Crop Type
+        String[] Loptions = {"Rice", "Wheat"};
+        JComboBox<String> dropdownType = new JComboBox<>(Loptions);
+        dropdownType.setBounds(360, 300, 240, 40);
+        dropdownType.setFont(new Font("Arial", Font.ITALIC, 20));
+        dropdownType.setBackground(Color.WHITE);
         
         //Select Crop store Sector
         String[] options = {"Goverment Sector", "Public Sector"};

@@ -133,7 +133,7 @@ public class AddNewStocks extends JFrame{
         StockNameTextBox.setBounds(620, 160, 240, 40);
         StockNameTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
 
-        //TextBox defined for StockName
+        //TextBox defined for StockQuantity
         JTextField StockQuantityTextBox = new JTextField("Enter Stock Quantity");
         StockQuantityTextBox.setBounds(360, 220, 240, 40);
         StockQuantityTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
@@ -145,9 +145,10 @@ public class AddNewStocks extends JFrame{
         dropdown.setFont(new Font("Arial", Font.ITALIC, 20));
         dropdown.setBackground(Color.WHITE);
 
+
         //Save item button
         JButton saveItemButton = new JButton("Add Item");
-        saveItemButton.setBounds(360, 300, 200, 50);
+        saveItemButton.setBounds(620, 300, 200, 50);
         saveItemButton.setBackground(new Color(237, 235, 235));
         saveItemButton.setForeground(Color.BLACK);
         saveItemButton.setFont(new Font("Arial", Font.BOLD, 20));

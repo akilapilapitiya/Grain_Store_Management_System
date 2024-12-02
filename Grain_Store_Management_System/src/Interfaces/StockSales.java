@@ -4,17 +4,23 @@ package Interfaces;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
 
-public class DashboardView extends JFrame{
-    public DashboardView(){
+public class StockSales extends JFrame{
+    public StockSales(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -62,7 +68,7 @@ public class DashboardView extends JFrame{
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Dashboard");
+        JLabel titleLabel = new JLabel("Stock Sales");
         titleLabel.setBounds(310, 15, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
@@ -116,25 +122,67 @@ public class DashboardView extends JFrame{
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         logoutButton.setBorder(border);
 
-        //Buttons defined for Purchases
-        JButton purchaseIconButton = new JButton("Stock Purchases");
-        purchaseIconButton.setBounds(420, 160, 400, 80);
-        purchaseIconButton.setBackground(new Color(172, 145, 127));
-        purchaseIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
-        purchaseIconButton.setForeground(Color.WHITE);
-        purchaseIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+        //Select Crop Name
+        String[] options = {"Rice", "Wheat"};
+        JComboBox<String> dropdown = new JComboBox<>(options);
+        dropdown.setBounds(360, 160, 240, 40);
+        dropdown.setFont(new Font("Arial", Font.ITALIC, 20));
+        dropdown.setBackground(Color.WHITE);
 
-        //Buttons defined for Sales
-        JButton salesIconButton = new JButton("Stock Sales");
-        salesIconButton.setBounds(420, 300, 400, 80);
-        salesIconButton.setBackground(new Color(172, 145, 127));
-        salesIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
-        salesIconButton.setForeground(Color.WHITE);
-        salesIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+        //TextBox defined for StockId
+        JTextField BuyerIDTextBox = new JTextField("Enter Buyer ID");
+        BuyerIDTextBox.setBounds(620, 160, 240, 40);
+        BuyerIDTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
+
+        //Add Item Button
+        JButton addStockButton = new JButton("Sell Stocks");
+        addStockButton.setBounds(360, 300, 200, 50);
+        addStockButton.setBackground(new Color(237, 235, 235));
+        addStockButton.setForeground(Color.BLACK);
+        addStockButton.setFont(new Font("Arial", Font.BOLD, 20));
+        addStockButton.setBorder(border);
+
+        //TextBox defined for StockQuantity
+        JTextField StockQuantityTextBox = new JTextField("Enter Stock Quantity");
+        StockQuantityTextBox.setBounds(360, 220, 240, 40);
+        StockQuantityTextBox.setFont(new Font("Arial", Font.ITALIC, 20));
+
+        //Table Column Headings Defined
+        String []columnNames = {"Item ID", "Name", "Quantity (kgs)", "PPUs"};
+        Object[][] StoreArray = {
+            {"G001", "Rice", 10400, 250},
+            {"G002", "Barley", 5000, 300},
+            {"G003", "Corn", 7800, 400}
+        };
+
+        // Create a table model
+        DefaultTableModel model = new DefaultTableModel(StoreArray, columnNames);
+
+        // Create a JTable using the model
+        JTable viewTable = new JTable(model);
+
+        //Table Appearance Customizations
+        viewTable.setFont(new Font("Arial",Font.PLAIN, 14));
+        viewTable.setRowHeight(30);
+        viewTable.setBackground(new Color(237, 235, 235));
+        viewTable.setForeground(Color.BLACK);
+        viewTable.setGridColor(Color.DARK_GRAY);
+        viewTable.getTableHeader().setFont(new Font("Arial", Font.BOLD, 16));
+        viewTable.getTableHeader().setBackground(new Color(172, 145, 127));
+        viewTable.getTableHeader().setForeground(Color.WHITE);
+
+        //Column Width Customizations
+        viewTable.getColumnModel().getColumn(0).setPreferredWidth(30); 
+        viewTable.getColumnModel().getColumn(1).setPreferredWidth(30);
+        viewTable.getColumnModel().getColumn(2).setPreferredWidth(30);
+        viewTable.getColumnModel().getColumn(3).setPreferredWidth(30);
         
-
-
-        
+        // Add the table to a JScrollPane for scroll functionality
+        JScrollPane scrollPane = new JScrollPane(viewTable);
+        scrollPane.setBounds(300, 390, 600, 150);
+        scrollPane.setBackground(new Color(237, 235, 235));
+        scrollPane.getViewport().setBackground(new Color(237, 235, 235));
+        scrollPane.setBorder(new EmptyBorder(0,0,0,0));
         
 
         //Event actions defined for Dashboard Button
@@ -169,7 +217,13 @@ public class DashboardView extends JFrame{
             }
         });
 
-
+        //Event actions defined for manage Warehouse Button
+        manageWarehouseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageWarehouse().setVisible(true);
+            }
+        });
 
         //Event actions defined for Logout Button
         logoutButton.addActionListener(new ActionListener() {
@@ -179,23 +233,7 @@ public class DashboardView extends JFrame{
             }
         });
 
-        //Event actions defined for purchaseIconButton
-        purchaseIconButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                dispose();
-                new StockPurchases().setVisible(true);
-            }
-        });
-
-        //Event actions defined for salesIconButton
-        salesIconButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                dispose();
-                new StockSales().setVisible(true);
-            }
-        });
-
-
+        
         //Add Elements to the Frame
         add(logoImageSetter);
         add(titleLabel);
@@ -205,11 +243,16 @@ public class DashboardView extends JFrame{
         add(manageStocksButton);
         add(manageWarehouseButton);
         add(logoutButton);
+        add(dropdown);
+        add(addStockButton);
+        add(StockQuantityTextBox);
+        add(BuyerIDTextBox);
+        add(scrollPane);
         add(titleBox);
-        add(purchaseIconButton);
-        add(salesIconButton);
         add(menuBox);
         //add(bodyBox);
         add(backgroundImageSetter);
-    }   
+    } 
 }
+
+

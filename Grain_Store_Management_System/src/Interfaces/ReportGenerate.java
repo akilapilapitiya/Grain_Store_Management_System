@@ -154,9 +154,17 @@ public class ReportGenerate extends JFrame{
         checkbox3.setFont(new Font("Arial", Font.BOLD, 20));
         checkbox4.setFont(new Font("Arial", Font.BOLD, 20));
 
+        //Buttons defined for Report Generate
+        JButton generateButton = new JButton("Generate Report");
+        generateButton.setBounds(420, 380, 200, 40);
+        generateButton.setBackground(new Color(237, 235, 235));
+        generateButton.setForeground(Color.BLACK);
+        generateButton.setFont(new Font("Arial", Font.BOLD, 18));
+        generateButton.setBorder(border);
+
         //Buttons defined for Report Download
         JButton downloadButton = new JButton("Download Report");
-        downloadButton.setBounds(420, 380, 200, 40);
+        downloadButton.setBounds(420, 500, 200, 40);
         downloadButton.setBackground(new Color(237, 235, 235));
         downloadButton.setForeground(Color.BLACK);
         downloadButton.setFont(new Font("Arial", Font.BOLD, 18));
@@ -226,6 +234,7 @@ public class ReportGenerate extends JFrame{
         add(checkbox3);
         add(checkbox4);
         add(dropdown);
+        add(generateButton);
         add(downloadButton);
         add(titleBox);
         add(menuBox);

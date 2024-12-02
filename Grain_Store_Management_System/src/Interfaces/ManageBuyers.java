@@ -13,8 +13,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener; 
 
-public class DashboardView extends JFrame{
-    public DashboardView(){
+public class ManageBuyers extends JFrame{
+    public ManageBuyers(){
+        
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -133,7 +134,13 @@ public class DashboardView extends JFrame{
         salesIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
 
-
+        //Buttons defined for Buyers
+        JButton manageBuyersIconButton = new JButton("Manage Buyers");
+        manageBuyersIconButton.setBounds(420, 440, 400, 80);
+        manageBuyersIconButton.setBackground(new Color(172, 145, 127));
+        manageBuyersIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
+        manageBuyersIconButton.setForeground(Color.WHITE);
+        manageBuyersIconButton.setFont(new Font("Arial", Font.BOLD, 25));
         
         
 
@@ -169,7 +176,13 @@ public class DashboardView extends JFrame{
             }
         });
 
-
+        //Event actions defined for manageBuyersIconButton
+        manageBuyersIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageBuyers().setVisible(true);
+            }
+        });
 
         //Event actions defined for Logout Button
         logoutButton.addActionListener(new ActionListener() {
@@ -195,6 +208,13 @@ public class DashboardView extends JFrame{
             }
         });
 
+        //Event actions defined for manageBuyersIconButton
+        manageBuyersIconButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageStocks().setVisible(true);
+            }
+        });
 
         //Add Elements to the Frame
         add(logoImageSetter);
@@ -208,8 +228,11 @@ public class DashboardView extends JFrame{
         add(titleBox);
         add(purchaseIconButton);
         add(salesIconButton);
+        add(manageBuyersIconButton);
         add(menuBox);
         //add(bodyBox);
         add(backgroundImageSetter);
     }   
 }
+
+
