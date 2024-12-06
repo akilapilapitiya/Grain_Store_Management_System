@@ -8,8 +8,11 @@ USE Grain_Management_System;
 CREATE TABLE warehouse (
     Warehouse_ID CHAR(5) NOT NULL PRIMARY KEY,
     Warehouse_name VARCHAR(45) NOT NULL,
-    Max_Capacity INT NOT NULL,
-    Location VARCHAR(45) NOT NULL
+    Max_Capacity DECIMAL(10, 2) NOT NULL,
+    Location VARCHAR(45) NOT NULL,
+    Warehouse_Telephone VARCHAR(15) NOT NULL,
+	Qty DECIMAL(10, 2) NOT NULL,
+    Sector VARCHAR(45) NOT NULL
 );
 
 /* Create Employee Table */
@@ -19,49 +22,29 @@ CREATE TABLE employee (
     Second_name VARCHAR(30) NOT NULL,
     User_Password VARCHAR(10) NOT NULL,
     Warehouse_ID CHAR(5) NOT NULL,
+    Telephone CHAR(10) NOT NULL,
     FOREIGN KEY (Warehouse_ID) REFERENCES warehouse(Warehouse_ID)
 );
 
-/* Telephone Numbers for Employee */
-CREATE TABLE employee_telephone (
-    Telephone_no_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Employee_ID CHAR(5) NOT NULL,
-    Telephone_no CHAR(10) NOT NULL,
-    FOREIGN KEY (Employee_ID) REFERENCES employee(Employee_ID)
-);
+
 
 /* Create Stock Table */
 CREATE TABLE stock (
     Stock_ID CHAR(5) NOT NULL PRIMARY KEY,
     Stock_name VARCHAR(45) NOT NULL,
-    Stock_type VARCHAR(45) NOT NULL,
-    Quantity INT DEFAULT 0,
-    Total_Availability INT DEFAULT 0
+    Quantity DECIMAL(10, 2) DEFAULT 0,
+    PPU DECIMAL(10, 2) DEFAULT 0,
+    Warehouse varchar(45) Not null
 );
 
 /* Create Buyer Table */
 CREATE TABLE buyer (
     Buyer_ID CHAR(5) NOT NULL PRIMARY KEY,
-    Buyer_name VARCHAR(45) NOT NULL
+    Buyer_name VARCHAR(45) NOT NULL,
+    Buyer_Password VARCHAR(10) NOT NULL,
+    Buyer_Telephone CHAR(10) NOT NULL
 );
 
-/* Telephone Numbers for Buyer */
-CREATE TABLE buyer_telephone (
-    Telephone_no_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Buyer_ID CHAR(5) NOT NULL,
-    Telephone_no CHAR(10) NOT NULL,
-    FOREIGN KEY (Buyer_ID) REFERENCES buyer(Buyer_ID)
-);
-
-
-
-/* Telephone Numbers for Warehouse */
-CREATE TABLE warehouse_telephone (
-    Telephone_no_ID INT AUTO_INCREMENT PRIMARY KEY,
-    Warehouse_ID CHAR(5) NOT NULL,
-    Telephone_no VARCHAR(15) NOT NULL,
-    FOREIGN KEY (Warehouse_ID) REFERENCES warehouse(Warehouse_ID)
-);
 
 /* Table for Relationship Between Stock and Warehouse (Many-to-Many) */
 CREATE TABLE stock_store (
@@ -74,11 +57,11 @@ CREATE TABLE stock_store (
 
 /* Table for Relationship Between Stock and Buyer (Many-to-Many) */
 CREATE TABLE stock_obtain (
+	Sales_ID INT primary key auto_increment,
     Stock_ID CHAR(5) NOT NULL,
     Buyer_ID CHAR(5) NOT NULL,
     Quantity_obtained INT NOT NULL,
-    Obtain_Date DATE NOT NULL,
-    PRIMARY KEY (Stock_ID, Buyer_ID),
+    Warehouse_ID varchar(45) Not null,
     FOREIGN KEY (Stock_ID) REFERENCES stock(Stock_ID),
     FOREIGN KEY (Buyer_ID) REFERENCES buyer(Buyer_ID)
 );
