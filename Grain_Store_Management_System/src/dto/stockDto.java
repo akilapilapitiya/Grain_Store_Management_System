@@ -1,16 +1,16 @@
-package Entity;
+package dto;
 
-public class stockEntity {
+public class stockDto {
     private String Stock_ID;
     private String Stock_name;
     private Double Quantity;
     private Double PPU;
     private String Warehouse;
     
-    public stockEntity() {
+    public stockDto() {
     }
 
-    public stockEntity(String Stock_ID, String Stock_name, Double Quantity,Double PPU, String Warehouse) {
+    public stockDto(String Stock_ID, String Stock_name, Double Quantity,Double PPU, String Warehouse) {
         
         this.Stock_ID = Stock_ID;
         this.Stock_name = Stock_name;
@@ -61,7 +61,9 @@ public class stockEntity {
 
     @Override
     public String toString() {
-        return "stockentity{"+"Stock_ID=" + Stock_ID + ", Stock_name=" + Stock_name + ", Quantity=" + Quantity + ", PPU="
+        return "stockDto{"+"Stock_ID=" + Stock_ID + ", Stock_name=" + Stock_name + ", Quantity=" + Quantity + ", PPU="
                 + PPU + ", Warehouse=" + Warehouse + "}";
     }
+
+    
 }

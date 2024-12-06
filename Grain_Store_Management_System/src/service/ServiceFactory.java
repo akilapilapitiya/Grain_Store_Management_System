@@ -4,7 +4,11 @@
  */
 package service;
 
+import service.custom.impl.buyerServiceImpl;
+import service.custom.impl.salesServiceImpl;
+import service.custom.impl.stockServiceImpl;
 import service.custom.impl.userServiceImpl;
+import service.custom.impl.warehouseServiceImpl;
 
 
 
@@ -26,14 +30,16 @@ public class ServiceFactory {
     }
     public SuperService getService(ServiceType type){
         switch(type){
-            /*case STOCK:
-                return new stockServiceImpl();
-            case ITEM:
-                return new ItemServiceImpl();*/
+            case WAREHOUSE:
+                return new warehouseServiceImpl();
+            case BUYER:
+                return new buyerServiceImpl();
             case EMPLOYEE:
                 return new userServiceImpl();
-            /*case MANAGE:
-                return new manageServiceImpl();*/
+            case STOCK:
+                return new stockServiceImpl();
+            case SALES:
+                return new salesServiceImpl();
             default:
                 return null;
         }
@@ -41,7 +47,6 @@ public class ServiceFactory {
 
     
     public enum ServiceType{
-        //CUSTOMER, CAR, USER, CATEGORY// ORDER
-        EMPLOYEE//,STOCK,ITEM,MANAGE
+        EMPLOYEE,BUYER,STOCK,WAREHOUSE,SALES
     }
 }

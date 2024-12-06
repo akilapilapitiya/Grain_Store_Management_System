@@ -22,7 +22,7 @@ public class userServiceImpl implements userService{
 
     @Override
     public String createAccount(userDto dto) throws Exception {
-        userEntity userEntity = new userEntity(dto.getEmployee_ID(),  dto.getFirst_name(), dto.getSecond_name(), dto.getUser_Password());
+        userEntity userEntity = new userEntity(dto.getEmployee_ID(),  dto.getFirst_name(), dto.getSecond_name(), dto.getUser_Password(),dto.getWarehouse_ID(),dto.getTelephone());
         
         if(userDao.add(userEntity)){
             return "successfully added";

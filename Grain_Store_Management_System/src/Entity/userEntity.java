@@ -1,97 +1,108 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package Entity;
 
+/**
+ *
+ * @author ASUS
+ */
 public class userEntity {
-    private int id;
-    private String name;
-    private String email;
-    private String mobile;
-    private String password;
-
+    private String Employee_ID;
+    private String First_name;
+    private String Second_name;
+    private String User_Password;
+    private String Warehouse_ID;
+    private String Telephone;
+    
     public userEntity() {
     }
 
-    public userEntity(String name, String email, String mobile, String password) {
+    public userEntity(String Employee_ID, String First_name, String Second_name, String User_Password, String Warehouse_ID, String Telephone) {
         
-        this.name = name;
-        this.email = email;
-        this.mobile = mobile;
-        this.password = password;
+        this.Employee_ID = Employee_ID;
+        this.First_name = First_name;
+        this.Second_name = Second_name;
+        this.User_Password = User_Password;
+        this.Warehouse_ID = Warehouse_ID;
+        this.Telephone=Telephone;
     }
 
     /**
-     * @return the id
+     * @return the Employee_ID
      */
-    public int getId() {
-        return id;
+    public String getEmployee_ID() {
+        return Employee_ID;
     }
 
     /**
-     * @param id the id to set
+     * @param Employee_ID the Employee_ID to set
      */
-    public void setId(int id) {
-        this.id = id;
+    public void setEmployee_ID(String Employee_ID) {
+        this.Employee_ID = Employee_ID;
     }
 
     /**
-     * @return the name
+     * @return the First_name
      */
-    public String getName() {
-        return name;
+    public String getFirst_name() {
+        return First_name;
     }
 
     /**
-     * @param name the name to set
+     * @param First_name the First_name to set
      */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    
-    /**
-     * @return the email
-     */
-    public String getEmail() {
-        return email;
+    public void setFirst_name(String First_name) {
+        this.First_name = First_name;
     }
 
     /**
-     * @param email the email to set
+     * @return the Second_name
      */
-    public void setEmail(String email) {
-        this.email = email;
+    public String getSecond_name() {
+        return Second_name;
     }
 
     /**
-     * @return the mobile
+     * @param Second_name the Second_name to set
      */
-    public String getMobile() {
-        return mobile;
+    public void setSecond_name(String Second_name) {
+        this.Second_name = Second_name;
     }
 
     /**
-     * @param mobile the mobile to set
+     * @return the User_Password
      */
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
+    public String getUser_Password() {
+        return User_Password;
     }
 
     /**
-     * @return the password
+     * @param User_Password the User_Password to set
      */
-    public String getPassword() {
-        return password;
+    public void setUser_Password(String User_Password) {
+        this.User_Password = User_Password;
     }
 
-    /**
-     * @param password the password to set
-     */
-    public void setPassword(String password) {
-        this.password = password;
+    public String getWarehouse_ID() {
+        return Warehouse_ID;
     }
 
+    public void setWarehouse_ID(String Warehouse_ID) {
+        this.Warehouse_ID = Warehouse_ID;
+    }
+
+    public String getTelephone() {
+        return Telephone;
+    }
+
+    public void setTelephone(String Telephone) {
+        this.Telephone = Telephone;
+    }
 
     @Override
     public String toString() {
-        return "userEntity{" + "id=" + id + ", name=" + name  + ", email=" + email + ", mobile=" + mobile + ", password=" + password + '}';
+        return "userEntity{" + "Employee_ID=" + Employee_ID + ", First_name=" + First_name + ", Second_name=" + Second_name + ", User_Password=" + User_Password + ", Warehouse_ID=" + Warehouse_ID + ", Telephone=" + Telephone + '}';
     }
 }

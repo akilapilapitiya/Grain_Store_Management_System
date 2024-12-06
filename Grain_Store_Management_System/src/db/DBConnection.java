@@ -22,7 +22,7 @@ public class DBConnection {
     private DBConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/Grain_Management_System", "root", "1234");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/grain_management_system", "root", "root");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
