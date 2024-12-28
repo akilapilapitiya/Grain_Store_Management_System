@@ -4,18 +4,7 @@
  */
 package project.granix;
 
-
-import Interfaces.AddNewStocks;
-import Interfaces.AddNewWarehouses;
-import Interfaces.DashboardView;
-import Interfaces.GovernmentAvailability;
 import Interfaces.HomeScreen;
-import Interfaces.LoginScreenBuyer;
-import Interfaces.PrivateAvailability;
-import Interfaces.SignUpScreenBuyer;
-import Interfaces.StockAvailability;
-import Interfaces.StockPurchases;
-import Interfaces.StockSales;
 
 
 
