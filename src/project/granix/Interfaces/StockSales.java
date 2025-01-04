@@ -407,7 +407,7 @@ public class StockSales extends JFrame{
 
             }
 
-            private void updateStockAndWarehouse(String stockId, String warehouseName, double quantity) {
+            private void updateStockAndWarehouse(String stockId, String warehouseID, double quantity) {
                 try {
                     // Establish database connection
                     Connection connection = DBConnection.getInstance().getConnection();
@@ -420,7 +420,7 @@ public class StockSales extends JFrame{
             
                     // Update warehouse quantity
                     String updateWarehouseQuery = "UPDATE warehouse SET Qty = Qty - " + quantity + 
-                                                  " WHERE Warehouse_name = '" + warehouseName + "'";
+                                                  " WHERE Warehouse_ID = '" + warehouseID + "'";
                     statement.executeUpdate(updateWarehouseQuery);
             
                     JOptionPane.showMessageDialog(this, "Stock and warehouse quantities updated successfully.");
@@ -429,7 +429,6 @@ public class StockSales extends JFrame{
                     JOptionPane.showMessageDialog(this, "Error updating quantities: " + e.getMessage());
                 }
             }
-            
 }
 
 
