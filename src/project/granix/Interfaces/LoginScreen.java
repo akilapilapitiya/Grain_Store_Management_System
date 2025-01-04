@@ -65,8 +65,8 @@ public class LoginScreen extends JFrame {
         contentBox.setBackground(new Color(237, 235, 235));
 
         // JLabel For Login Text
-        JLabel loginText = new JLabel("Login for Employees");
-        loginText.setBounds(170, 210, 200, 100);
+        JLabel loginText = new JLabel("Employee Login");
+        loginText.setBounds(120, 210, 200, 100);
         loginText.setForeground(Color.black);
         loginText.setFont(new Font("Arial", Font.BOLD, 24));
 

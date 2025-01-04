@@ -29,26 +29,26 @@ public class HomeScreen extends JFrame{
         setIconImage(image);
 
         //JFrame Background Image
-        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/HomeScreenBackground.jpg"));
+        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("assets/HomeScreenBackground.png"));
         Image imageSet = backgroundImageSet.getImage();
         Image resizedImage = imageSet.getScaledInstance(1005, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
         JLabel backgroundImageSetter = new JLabel(backgroundImage);
         backgroundImageSetter.setBounds(0, 0, 1005, 700);
 
-        //JFrame Logo Image
+        /*//JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
         Image logoSet = logoImageSet.getImage();
         Image resizedLogoImage = logoSet.getScaledInstance(400, 200, Image.SCALE_SMOOTH);
         ImageIcon logoImage = new ImageIcon(resizedLogoImage);
         JLabel logoImageSetter = new JLabel(logoImage);
-        logoImageSetter.setBounds(50, 20, 400, 200);
+        logoImageSetter.setBounds(50, 20, 400, 200);*/
         
         //JButton for Login Link
         JButton loginPageButton = new JButton("Employee Login");
         loginPageButton.setBounds(220, 434, 200, 76);
         loginPageButton.setBorderPainted(false);
-        loginPageButton.setBackground(new Color(77, 26, 0));
+        loginPageButton.setBackground(Color.RED);
         loginPageButton.setForeground(Color.WHITE);
         //loginPageButton.setContentAreaFilled(false);
         loginPageButton.setBorderPainted(false);
@@ -85,8 +85,8 @@ public class HomeScreen extends JFrame{
     //Add Elements to the Frame
     add(loginPageButton);
     add(SignUpPageButton);
-    add(logoImageSetter);
-    add(backgroundImageSetter);
+    //add(logoImageSetter);
+    //add(backgroundImageSetter);
     
     
 }   

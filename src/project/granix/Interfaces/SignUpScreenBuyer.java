@@ -44,10 +44,10 @@ public class SignUpScreenBuyer extends JFrame{
         Image image = iconImage.getImage();
         setIconImage(image);
 
-        //JFrame Background Image
+        // JFrame Background Image
         ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("Assets/sideView.png"));
         Image imageSet = backgroundImageSet.getImage();
-        Image resizedImage = imageSet.getScaledInstance(900, 600, Image.SCALE_SMOOTH);
+        Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
         ImageIcon backgroundImage = new ImageIcon(resizedImage);
         JLabel backgroundImageSetter = new JLabel(backgroundImage);
         backgroundImageSetter.setBounds(0, 0, 1000, 700);
@@ -67,8 +67,8 @@ public class SignUpScreenBuyer extends JFrame{
         contentBox.setBackground(new Color(237, 235, 235));
 
         //JLabel For Login Text
-        JLabel SignUpText = new JLabel("Sign-up for Buyer");
-        SignUpText.setBounds(170, 140, 300, 100);
+        JLabel SignUpText = new JLabel("Sign-Up");
+        SignUpText.setBounds(150, 140, 300, 100);
         SignUpText.setForeground(Color.black);
         SignUpText.setFont(new Font("Arial", Font.BOLD, 30));
 
