@@ -323,15 +323,18 @@ public class StockSales extends JFrame{
             
             private void addToOrder() throws Exception {
                 try {
+                    
 
                     String stockName = dropdown.getSelectedItem().toString();
                    
                     double quantity = Double.parseDouble(StockQuantityTextBox.getText());
                     String warehouseName = dropdown2.getSelectedItem().toString();
 
-                    salesdto salesdto = new salesdto(getIdByName(dropdown.getSelectedItem().toString()),BuyerIDTextBox.getText(),Double.parseDouble(StockQuantityTextBox.getText()),getWarehouseIdByName(dropdown2.getSelectedItem().toString()));
+                    String stockId = getIdByNameAndWarehouse(stockName, getWarehouseIdByName(warehouseName));
+
+                    salesdto salesdto = new salesdto(stockId,BuyerIDTextBox.getText(),Double.parseDouble(StockQuantityTextBox.getText()),getWarehouseIdByName(dropdown2.getSelectedItem().toString()));
                     
-                    updateStockAndWarehouse(stockName, warehouseName, quantity);
+                    updateStockAndWarehouse(stockId, getWarehouseIdByName(warehouseName), quantity);
 
                     String result = salesController.addsales(salesdto);
                     JOptionPane.showMessageDialog(this, result, "Order Completed Successfully", JOptionPane.INFORMATION_MESSAGE);
@@ -343,18 +346,19 @@ public class StockSales extends JFrame{
                         JOptionPane.showMessageDialog(this, ex.getMessage());
                     }
             }
-            public String getIdByName(String name) {
+            public String getIdByNameAndWarehouse(String name, String Warehouse) {
                 String id = null;
                 try {
                     // Establish database connection
                     Connection connection = DBConnection.getInstance().getConnection();
             
                     // SQL query to get the ID based on the name
-                    String query = "SELECT Stock_ID FROM stock WHERE Stock_name = ?";
+                    String query = "SELECT Stock_ID FROM stock WHERE Stock_name = ? AND Warehouse = ?";
                     PreparedStatement preparedStatement = connection.prepareStatement(query);
             
                     // Set the name parameter
-                    preparedStatement.setString(1, name);
+                    preparedStatement.setString(1, name.trim());
+                    preparedStatement.setString(2, Warehouse.trim());
             
                     // Execute the query
                     ResultSet resultSet = preparedStatement.executeQuery();
@@ -403,7 +407,7 @@ public class StockSales extends JFrame{
 
             }
 
-            private void updateStockAndWarehouse(String stockName, String warehouseName, double quantity) {
+            private void updateStockAndWarehouse(String stockId, String warehouseName, double quantity) {
                 try {
                     // Establish database connection
                     Connection connection = DBConnection.getInstance().getConnection();
@@ -411,7 +415,7 @@ public class StockSales extends JFrame{
             
                     // Update stock quantity
                     String updateStockQuery = "UPDATE stock SET Quantity = Quantity - " + quantity + 
-                                              " WHERE Stock_name = '" + stockName + "'";
+                                              " WHERE Stock_ID = '" + stockId + "'";
                     statement.executeUpdate(updateStockQuery);
             
                     // Update warehouse quantity
