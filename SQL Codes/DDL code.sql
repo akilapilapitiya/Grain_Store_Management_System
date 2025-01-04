@@ -11,7 +11,7 @@ CREATE TABLE warehouse (
     Max_Capacity DECIMAL(10, 2) NOT NULL,
     Location VARCHAR(45) NOT NULL,
     Warehouse_Telephone VARCHAR(15) NOT NULL,
-	Qty DECIMAL(10, 2) NOT NULL,
+	Qty DECIMAL(10, 2),
     Sector VARCHAR(45) NOT NULL
 );
 
