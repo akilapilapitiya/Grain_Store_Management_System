@@ -102,7 +102,7 @@ public class ModifyStocks extends JFrame{
                 Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
         
                 //JLabel For Interface Title
-                JLabel titleLabel = new JLabel("Add New Stocks");
+                JLabel titleLabel = new JLabel("Modify Stocks");
                 titleLabel.setBounds(310, 15, 600, 50);
                 titleLabel.setBackground(new Color(237, 235, 235));
                 titleLabel.setForeground(Color.WHITE);

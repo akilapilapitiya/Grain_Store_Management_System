@@ -404,6 +404,17 @@ public class AddNewWarehouses extends JFrame{
 
             private void addWarehouse() throws Exception {
                 try {
+                    String warehouseCapacityText = WarehouseCapacity.getText();
+                    if (!isValidNumber(warehouseCapacityText)) {
+                        JOptionPane.showMessageDialog(this, "Warehouse Capacity must be a valid number!", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    String warehouseTel = WarehouseTelTextBox.getText();
+                    if (!isValidPhoneNumber(warehouseTel)) {
+                        JOptionPane.showMessageDialog(this, "Warehouse Telephone must be a valid phone number!", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    
                     warehouseDto warehouseDto = new warehouseDto(WarehouseIDTextBox.getText(), WarehouseNameTextBox.getText(), Double.parseDouble(WarehouseCapacity.getText()),warehouseLocationTextField.getText(),WarehouseTelTextBox.getText(),dropdown.getSelectedItem().toString());
                     
                     String result = warehouseController.addWarehouse(warehouseDto);
@@ -414,6 +425,20 @@ public class AddNewWarehouses extends JFrame{
                         Logger.getLogger(AddNewWarehouses.class.getName()).log(Level.SEVERE, null, ex);
                         JOptionPane.showMessageDialog(this, ex.getMessage());
                     }
+            }
+            // Helper method to validate if the input is a valid number
+            private boolean isValidNumber(String text) {
+                try {
+                    Double.parseDouble(text); // Try to parse the text as a number
+                    return true;
+                } catch (NumberFormatException e) {
+                    return false; // Return false if it's not a valid number
+                }
+            }
+            private boolean isValidPhoneNumber(String phoneNumber) {
+                // Ensure the phone number contains only digits and is at least 10 digits long
+                String regex = "^[0-9]{10,15}$"; // Modify the length range as needed (10-15 digits)
+                return phoneNumber.matches(regex);
             }
             private void Clear() {
                 WarehouseIDTextBox.setText("");

@@ -5,7 +5,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -132,7 +131,7 @@ public class ReportGenerate extends JFrame{
         logoutButton.setBorder(border);
 
         //JLabel For Scope Selection
-        JLabel scopeLabel = new JLabel("Select the Desired Field");
+        /*JLabel scopeLabel = new JLabel("Select the Desired Field");
         scopeLabel.setBounds(420, 140, 400, 20);
         scopeLabel.setForeground(Color.BLACK);
         scopeLabel.setFont(new Font("Arial", Font.BOLD, 20));
@@ -142,11 +141,11 @@ public class ReportGenerate extends JFrame{
         JComboBox<String> dropdown = new JComboBox<>(options);
         dropdown.setBounds(420, 180, 200, 30);
         dropdown.setFont(new Font("Arial", Font.BOLD, 20));
-        dropdown.setBackground(new Color(237, 235, 235));
+        dropdown.setBackground(new Color(237, 235, 235));*/
 
         //JLabel For Crop Selection
         JLabel cropLabel = new JLabel("Select Crops");
-        cropLabel.setBounds(420, 240, 400, 20);
+        cropLabel.setBounds(420, 140, 400, 20);
         cropLabel.setForeground(Color.BLACK);
         cropLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
@@ -155,7 +154,7 @@ public class ReportGenerate extends JFrame{
 
         // JPanel to hold dynamically created checkboxes
         JPanel cropCheckboxPanel = new JPanel();
-        cropCheckboxPanel.setBounds(420, 280, 300, 200); // Position and size of the panel
+        cropCheckboxPanel.setBounds(420, 180, 300, 250); // Position and size of the panel
         cropCheckboxPanel.setBackground(Color.WHITE);
 
         // Calculate the number of rows and columns dynamically
@@ -195,7 +194,7 @@ add(cropCheckboxPanel);
         downloadButton.setFont(new Font("Arial", Font.BOLD, 18));
         downloadButton.setBorder(border);
 
-        FileHandle fileHandler = new FileHandle("example.txt");
+        FileHandle fileHandler = new FileHandle("Report.txt");
 
 
 
@@ -242,7 +241,20 @@ add(cropCheckboxPanel);
         //Event actions defined for generateButton
         generateButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                fileHandler.WriteFile();
+                List<String> selectedStocks = new ArrayList<>();
+                for (Component comp : cropCheckboxPanel.getComponents()) {
+                    if (comp instanceof JCheckBox) {
+                        JCheckBox checkbox = (JCheckBox) comp;
+                        if (checkbox.isSelected()) {
+                            selectedStocks.add(checkbox.getText());
+                        }
+                    }
+                }
+                if (!selectedStocks.isEmpty()) {
+                    fileHandler.WriteFile(selectedStocks);
+                } else {
+                    System.out.println("No stocks selected for report generation.");
+                }
             }
         });
 
@@ -271,10 +283,10 @@ add(cropCheckboxPanel);
         //add(manageStocksButton);
         //add(manageWarehouseButton);
         add(logoutButton);
-        add(scopeLabel);
+        //add(scopeLabel);
         add(cropLabel);
         
-        add(dropdown);
+        //add(dropdown);
         add(generateButton);
         add(downloadButton);
         add(titleBox);

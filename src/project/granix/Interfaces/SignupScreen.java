@@ -278,6 +278,12 @@ public class SignupScreen extends JFrame{
                                 JOptionPane.showMessageDialog(null, "Passwords do not match.");
                                 return;
                             }
+                            String mobile = userMobileTextBox.getText().trim();
+                            if (!isValidPhoneNumber(mobile)) {
+                                JOptionPane.showMessageDialog(null, "Please enter a valid mobile number.");
+                                return;
+                            }
+                            
                 
                             // Retrieve warehouse ID from selected warehouse name
                             String selectedWarehouseName = (String) dropdown.getSelectedItem();
@@ -306,6 +312,11 @@ public class SignupScreen extends JFrame{
                     } catch (Exception ex) {
                         JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
                     }
+                }
+                private boolean isValidPhoneNumber(String phoneNumber) {
+                    // Ensure the phone number contains only digits and is at least 10 digits long
+                    String regex = "^[0-9]{10,15}$"; // Modify the length range as needed (10-15 digits)
+                    return phoneNumber.matches(regex);
                 }
                     
             private void clearFields() {

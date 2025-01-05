@@ -395,33 +395,67 @@ public class AddNewStocks extends JFrame{
         
             private void addStock() throws Exception {
                 try {
-                    stockDto stockDto = new stockDto(StockIDTextBox.getText(), StockNameTextBox.getText(), Double.parseDouble(StockQuantityTextBox.getText()),Double.parseDouble(ppuTextField.getText()),getWarehouseIdByName(dropdown.getSelectedItem().toString()));
-                    
-                    //String result = stockController.addStock(stockDto);
-                    //JOptionPane.showConfirmDialog(this, result);
-                    // Check if the quantity fits within the warehouse capacity
-                if (canAddToWarehouse(stockDto.getWarehouse(), stockDto.getQuantity())) {
-                    // Add the stock to the database
-                    String result = stockController.addStock(stockDto);
-                    JOptionPane.showMessageDialog(this, result);
-
-                    // Update the warehouse after adding the stock
-                    updateWarehouse(stockDto.getWarehouse(), stockDto.getQuantity());
-                }else {
-                    // Show error message when exceeding max capacity
-                    JOptionPane.showMessageDialog(
-                        this,
-                        "Cannot add stock. The quantity exceeds the maximum capacity of the warehouse!",
-                        "Capacity Exceeded",
-                        JOptionPane.ERROR_MESSAGE
+                    // Validate Stock Quantity - Ensure it's a valid number
+                    String stockQuantityText = StockQuantityTextBox.getText();
+                    if (!isValidNumber(stockQuantityText)) {
+                        JOptionPane.showMessageDialog(this, "Stock Quantity must be a valid number!", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    double stockQuantity = Double.parseDouble(stockQuantityText);
+            
+                    // Validate Price per Unit - Ensure it's a valid number
+                    String ppuText = ppuTextField.getText();
+                    if (!isValidNumber(ppuText)) {
+                        JOptionPane.showMessageDialog(this, "Price per Unit must be a valid number!", "Invalid Input", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+                    double pricePerUnit = Double.parseDouble(ppuText);
+            
+                    // Create stockDto object
+                    stockDto stockDto = new stockDto(
+                        StockIDTextBox.getText(),
+                        StockNameTextBox.getText(),
+                        stockQuantity,
+                        pricePerUnit,
+                        getWarehouseIdByName(dropdown.getSelectedItem().toString())
                     );
-                }
+            
+                    // Check if the quantity fits within the warehouse capacity
+                    if (canAddToWarehouse(stockDto.getWarehouse(), stockDto.getQuantity())) {
+                        // Add the stock to the database
+                        String result = stockController.addStock(stockDto);
+                        JOptionPane.showMessageDialog(this, result);
+            
+                        // Update the warehouse after adding the stock
+                        updateWarehouse(stockDto.getWarehouse(), stockDto.getQuantity());
+                    } else {
+                        // Show error message when exceeding max capacity
+                        JOptionPane.showMessageDialog(
+                            this,
+                            "Cannot add stock. The quantity exceeds the maximum capacity of the warehouse!",
+                            "Capacity Exceeded",
+                            JOptionPane.ERROR_MESSAGE
+                        );
+                    }
+            
+                    // Clear and reload all stock
                     Clear();
                     loadallStock();
-                    } catch (Exception ex) {
-                        Logger.getLogger(AddNewStocks.class.getName()).log(Level.SEVERE, null, ex);
-                        JOptionPane.showMessageDialog(this, ex.getMessage());
-                    }
+            
+                } catch (Exception ex) {
+                    Logger.getLogger(AddNewStocks.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(this, ex.getMessage());
+                }
+            }
+            
+            // Helper method to validate if the input is a valid number
+            private boolean isValidNumber(String text) {
+                try {
+                    Double.parseDouble(text); // Try to parse the text as a number
+                    return true;
+                } catch (NumberFormatException e) {
+                    return false; // Return false if it's not a valid number
+                }
             }
             private void Clear() {
                 StockIDTextBox.setText("");

@@ -5,7 +5,6 @@
 package project.granix;
 
 import Interfaces.HomeScreen;
-import Interfaces.ReportGenerate;
 
 
 
@@ -19,7 +18,7 @@ public class ProjectGranix {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        new ReportGenerate().setVisible(true);
+        new HomeScreen().setVisible(true);
     }
     
 }
