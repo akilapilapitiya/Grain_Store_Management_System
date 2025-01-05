@@ -183,7 +183,7 @@ public class LoginScreenBuyer extends JFrame{
 
     // Load Dashboard after successful login
     private void loadDashboard() {
-        new DashboardView().setVisible(true);
+        new DashboardBuyer().setVisible(true);
         this.dispose();
     }
  
@@ -208,6 +208,7 @@ public class LoginScreenBuyer extends JFrame{
                 loadDashboard();
             } else {
                 JOptionPane.showMessageDialog(LoginScreenBuyer.this, "Invalid username or password");
+                new LoginScreenBuyer().setVisible(true);
             }
         }
     }

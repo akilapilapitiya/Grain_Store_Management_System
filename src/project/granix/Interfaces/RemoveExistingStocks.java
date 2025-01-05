@@ -292,10 +292,10 @@ public class RemoveExistingStocks extends JFrame{
         add(itemNameText);
         add(titleLabel);
         add(dashBoardButton);
-        add(availabilityButton);
-        add(reportButton);
-        add(manageStocksButton);
-        add(manageWarehouseButton);
+        //add(availabilityButton);
+        //add(reportButton);
+        //add(manageStocksButton);
+        //add(manageWarehouseButton);
         add(logoutButton);
         add(StockIDTextBox);
         add(searchItemItemButton);

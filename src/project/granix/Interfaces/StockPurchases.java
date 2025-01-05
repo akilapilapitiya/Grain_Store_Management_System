@@ -225,10 +225,10 @@ public class StockPurchases extends JFrame{
         add(logoImageSetter);
         add(titleLabel);
         add(dashBoardButton);
-        add(availabilityButton);
-        add(reportButton);
-        add(manageStocksButton);
-        add(manageWarehouseButton);
+        //add(availabilityButton);
+        //add(reportButton);
+        //add(manageStocksButton);
+        //add(manageWarehouseButton);
         add(logoutButton);
         add(scrollPane);
         add(titleBox);
@@ -241,7 +241,7 @@ public class StockPurchases extends JFrame{
 
     private void loadOrders() {
                 try {
-                    String[] columns = {"Stock_name", "Quantity"};
+                    String[] columns = {"Stock Name", "Quantity"};
                     DefaultTableModel dtm = new DefaultTableModel(columns, 0) {
                         @Override
                         public boolean isCellEditable(int row, int column) {

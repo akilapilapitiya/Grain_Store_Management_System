@@ -6,20 +6,21 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
+
 
 //Java Class Imports
+import Interfaces.DashboardBuyer;
 
-import Interfaces.ManageStocks;
 
-
-public class ManageStocks extends JFrame{
-    public ManageStocks(){
+public class DashboardBuyer extends JFrame{
+    public DashboardBuyer(){
         //JFrame Definitions
         setTitle("Grain Store Managment System"); //Title Changed
         setSize(1000, 700);
@@ -32,42 +33,42 @@ public class ManageStocks extends JFrame{
         Image image = iconImage.getImage();
         setIconImage(image);
 
-       //JFrame Background Image
-       ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("Assets/sideView.png"));
-       Image imageSet = backgroundImageSet.getImage();
-       Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
-       ImageIcon backgroundImage = new ImageIcon(resizedImage);
-       JLabel backgroundImageSetter = new JLabel(backgroundImage);
-       backgroundImageSetter.setBounds(100, 0, 1000, 700);
+        //JFrame Background Image
+        ImageIcon backgroundImageSet = new ImageIcon(getClass().getResource("Assets/sideView.png"));
+        Image imageSet = backgroundImageSet.getImage();
+        Image resizedImage = imageSet.getScaledInstance(1000, 700, Image.SCALE_SMOOTH);
+        ImageIcon backgroundImage = new ImageIcon(resizedImage);
+        JLabel backgroundImageSetter = new JLabel(backgroundImage);
+        backgroundImageSetter.setBounds(100, 0, 1000, 700);
 
-       //JFrame Logo Image
-       ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
-       Image logoSet = logoImageSet.getImage();
-       Image resizedLogoImage = logoSet.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
-       ImageIcon logoImage = new ImageIcon(resizedLogoImage);
-       JLabel logoImageSetter = new JLabel(logoImage);
-       logoImageSetter.setBounds(40, 0, 200, 100);
+        //JFrame Logo Image
+        ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
+        Image logoSet = logoImageSet.getImage();
+        Image resizedLogoImage = logoSet.getScaledInstance(200, 100, Image.SCALE_SMOOTH);
+        ImageIcon logoImage = new ImageIcon(resizedLogoImage);
+        JLabel logoImageSetter = new JLabel(logoImage);
+        logoImageSetter.setBounds(40, 0, 200, 100);
 
-       //JPanel for menu Box
-       JPanel menuBox = new JPanel();
-       menuBox.setBounds(10, 10, 250, 640);
-       menuBox.setBackground(Color.WHITE);
+        //JPanel for menu Box
+        JPanel menuBox = new JPanel();
+        menuBox.setBounds(10, 10, 250, 640);
+        menuBox.setBackground(Color.WHITE);
 
-       //JPanel for Body Box
-       JPanel bodyBox = new JPanel();
-       bodyBox.setBounds(260, 10, 710, 640);
-       //bodyBox.setBackground(new Color(237, 235, 235));
-       bodyBox.setBackground(Color.WHITE);
+        //JPanel for Body Box
+        JPanel bodyBox = new JPanel();
+        bodyBox.setBounds(260, 10, 710, 640);
+        //bodyBox.setBackground(new Color(237, 235, 235));
+        bodyBox.setBackground(Color.WHITE);
 
-       //JPanel for Title Box
-       JPanel titleBox = new JPanel();
-       titleBox.setBounds(260, 0, 740, 75);
-       titleBox.setBackground(new Color(172, 145, 127));
+        //JPanel for Title Box
+        JPanel titleBox = new JPanel();
+        titleBox.setBounds(260, 0, 740, 75);
+        titleBox.setBackground(new Color(172, 145, 127));
 
         Border border = BorderFactory.createLineBorder(Color.BLACK, 1);
 
         //JLabel For Interface Title
-        JLabel titleLabel = new JLabel("Manage Stocks");
+        JLabel titleLabel = new JLabel("Dashboard");
         titleLabel.setBounds(310, 15, 400, 50);
         titleLabel.setBackground(new Color(237, 235, 235));
         titleLabel.setForeground(Color.WHITE);
@@ -75,8 +76,8 @@ public class ManageStocks extends JFrame{
 
         //Buttons defined for DashBoard
         JButton dashBoardButton = new JButton("Dashboard");
-        dashBoardButton.setBounds(10, 140, 200, 50);
-        dashBoardButton.setBackground(new Color(237, 235, 235));
+        dashBoardButton.setBounds(10, 140, 250, 50);
+        dashBoardButton.setBackground(Color.WHITE);
         dashBoardButton.setForeground(new Color(27, 17, 14));
         dashBoardButton.setFont(new Font("Arial", Font.BOLD, 20));
         dashBoardButton.setBorder(border);
@@ -99,8 +100,8 @@ public class ManageStocks extends JFrame{
 
         //Buttons defined for manage Stocks
         JButton manageStocksButton = new JButton("Manage Stocks");
-        manageStocksButton.setBounds(10, 380, 250, 50);
-        manageStocksButton.setBackground(Color.WHITE);
+        manageStocksButton.setBounds(10, 380, 200, 50);
+        manageStocksButton.setBackground(new Color(237, 235, 235));
         manageStocksButton.setForeground(Color.BLACK);
         manageStocksButton.setFont(new Font("Arial", Font.BOLD, 20));
         manageStocksButton.setBorder(border);
@@ -121,36 +122,32 @@ public class ManageStocks extends JFrame{
         logoutButton.setFont(new Font("Arial", Font.BOLD, 20));
         logoutButton.setBorder(border);
 
-        //Buttons defined for Add New Stocks
-        JButton addIconButton = new JButton("Add New Stocks");
-        addIconButton.setBounds(420, 160, 400, 80);
-        addIconButton.setBackground(new Color(172, 145, 127));
-        addIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
-        addIconButton.setForeground(Color.WHITE);
-        addIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+        //Buttons defined for Purchases
+        JButton purchaseIconButton = new JButton("Stock Purchases");
+        purchaseIconButton.setBounds(420, 160, 400, 80);
+        purchaseIconButton.setBackground(new Color(172, 145, 127));
+        purchaseIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
+        purchaseIconButton.setForeground(Color.WHITE);
+        purchaseIconButton.setFont(new Font("Arial", Font.BOLD, 25));
 
-        //Buttons defined for Modify stocks
-        JButton modifyIconButton = new JButton("Modify Existing Stocks");
-        modifyIconButton.setBounds(420, 300, 400, 80);
-        modifyIconButton.setBackground(new Color(172, 145, 127));
-        modifyIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
-        modifyIconButton.setForeground(Color.WHITE);
-        modifyIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+        //Buttons defined for Sales
+        JButton salesIconButton = new JButton("Stock Sales");
+        salesIconButton.setBounds(420, 300, 400, 80);
+        salesIconButton.setBackground(new Color(172, 145, 127));
+        salesIconButton.setBorder(new LineBorder(new Color(102,51,0), 1)); 
+        salesIconButton.setForeground(Color.WHITE);
+        salesIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+        
 
-        //Buttons defined for Removing stocks
-        JButton removeIconButton = new JButton("Remove Existing Stocks");
-        removeIconButton.setBounds(420, 440, 400, 80);
-        removeIconButton.setBackground(new Color(172, 145, 127));
-        removeIconButton.setBorder(new LineBorder(new Color(102,51,0), 1));
-        removeIconButton.setForeground(Color.WHITE);
-        removeIconButton.setFont(new Font("Arial", Font.BOLD, 25));
+
+        
         
 
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
-                new DashboardView().setVisible(true);
+                new DashboardBuyer().setVisible(true);
             }
         });
 
@@ -165,26 +162,25 @@ public class ManageStocks extends JFrame{
         //Event actions defined for Reports Button
         reportButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                dispose();
-                new ReportGenerate().setVisible(true);
+                JOptionPane.showMessageDialog(null, "Access Only for Employees");
             }
         });
 
         //Event actions defined for manage Stocks Button
         manageStocksButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                dispose();
-                new ManageStocks().setVisible(true);
+                JOptionPane.showMessageDialog(null, "Access Only for Employees");
+                
             }
         });
 
-        //Event actions defined for manage Warehouse Button
         manageWarehouseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                dispose();
-                new ManageWarehouse().setVisible(true);
+                JOptionPane.showMessageDialog(null, "Access Only for Employees");
             }
         });
+
+
 
         //Event actions defined for Logout Button
         logoutButton.addActionListener(new ActionListener() {
@@ -194,45 +190,38 @@ public class ManageStocks extends JFrame{
             }
         });
 
-        //Event actions defined for Add Stocks
-        addIconButton.addActionListener(new ActionListener() {
+        //Event actions defined for purchaseIconButton
+        purchaseIconButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
-                dispose();
-                new AddNewStocks().setVisible(true);
+                JOptionPane.showMessageDialog(null, "Access Only for Employees");
             }
         });
 
-        //Event actions defined for Modify Stocks
-        modifyIconButton.addActionListener(new ActionListener() {
+        //Event actions defined for salesIconButton
+        salesIconButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 dispose();
-                new ModifyStocks().setVisible(true);
+                new StockSales().setVisible(true);
             }
         });
 
-        //Event actions defined for Remove Stocks
-        removeIconButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e){
-                dispose();
-                new RemoveExistingStocks().setVisible(true);
-            }
-        });
 
         //Add Elements to the Frame
         add(logoImageSetter);
         add(titleLabel);
         add(dashBoardButton);
-        //add(availabilityButton);
-        //add(reportButton);
-        //add(manageStocksButton);
-        //add(manageWarehouseButton);
+        add(availabilityButton);
+        add(reportButton);
+        add(manageStocksButton);
+        add(manageWarehouseButton);
         add(logoutButton);
-        add(addIconButton);
-        add(modifyIconButton);
-        add(removeIconButton);
         add(titleBox);
+        add(purchaseIconButton);
+        add(salesIconButton);
         add(menuBox);
         //add(bodyBox);
         add(backgroundImageSetter);
     }   
+
+
 }

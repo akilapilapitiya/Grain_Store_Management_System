@@ -208,6 +208,7 @@ public class LoginScreen extends JFrame {
                 loadDashboard();
             } else {
                 JOptionPane.showMessageDialog(LoginScreen.this, "Invalid username or password");
+                new LoginScreen().setVisible(true);
             }
         }
     }

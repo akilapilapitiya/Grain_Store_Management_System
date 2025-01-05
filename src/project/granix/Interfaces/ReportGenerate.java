@@ -12,11 +12,19 @@ import javax.swing.JPanel;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener; 
+import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 //Java Class Imports
 
 import Interfaces.ReportGenerate;
+import db.DBConnection;
 import fileManager.FileHandle;
 
 
@@ -143,26 +151,37 @@ public class ReportGenerate extends JFrame{
         cropLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         //Checkboxes for crops
-        JCheckBox checkbox1 = new JCheckBox("Rice");
-        JCheckBox checkbox2 = new JCheckBox("Corn");
-        JCheckBox checkbox3 = new JCheckBox("Barley");
-        JCheckBox checkbox4 = new JCheckBox("Mustard");
-        checkbox1.setBounds(420, 280, 300, 20);
-        checkbox2.setBounds(420, 300, 300, 20);
-        checkbox3.setBounds(420, 320, 300, 20);
-        checkbox4.setBounds(420, 340, 300, 20);
-        checkbox1.setBackground(Color.WHITE);
-        checkbox2.setBackground(Color.WHITE);
-        checkbox3.setBackground(Color.WHITE);
-        checkbox4.setBackground(Color.WHITE);
-        checkbox1.setFont(new Font("Arial", Font.BOLD, 20));
-        checkbox2.setFont(new Font("Arial", Font.BOLD, 20));
-        checkbox3.setFont(new Font("Arial", Font.BOLD, 20));
-        checkbox4.setFont(new Font("Arial", Font.BOLD, 20));
+        List<String> stockList = getStocksFromDatabase();
+
+        // JPanel to hold dynamically created checkboxes
+        JPanel cropCheckboxPanel = new JPanel();
+        cropCheckboxPanel.setBounds(420, 280, 300, 200); // Position and size of the panel
+        cropCheckboxPanel.setBackground(Color.WHITE);
+
+        // Calculate the number of rows and columns dynamically
+        int totalCheckboxes = stockList.size();
+        int panelHeight = cropCheckboxPanel.getHeight();
+        int checkboxHeight = 30; // Approximate height of a checkbox
+        int rows = panelHeight / checkboxHeight;
+        int columns = (int) Math.ceil((double) totalCheckboxes / rows);
+
+        // Set the GridLayout with calculated rows and columns
+        cropCheckboxPanel.setLayout(new GridLayout(0, columns, 10, 10)); // 0 rows, dynamically adjusted based on columns
+
+        // Create a checkbox for each stock name
+        for (String stock : stockList) {
+            JCheckBox stockCheckbox = new JCheckBox(stock);
+            stockCheckbox.setBackground(Color.WHITE);
+            stockCheckbox.setFont(new Font("Arial", Font.BOLD, 20));
+            cropCheckboxPanel.add(stockCheckbox);
+        }
+
+        // Add the checkbox panel to the frame
+add(cropCheckboxPanel);
 
         //Buttons defined for Report Generate
         JButton generateButton = new JButton("Generate Report");
-        generateButton.setBounds(420, 380, 200, 40);
+        generateButton.setBounds(420, 500, 200, 40);
         generateButton.setBackground(new Color(237, 235, 235));
         generateButton.setForeground(Color.BLACK);
         generateButton.setFont(new Font("Arial", Font.BOLD, 18));
@@ -170,7 +189,7 @@ public class ReportGenerate extends JFrame{
 
         //Buttons defined for Report Download
         JButton downloadButton = new JButton("Download Report");
-        downloadButton.setBounds(420, 500, 200, 40);
+        downloadButton.setBounds(695, 500, 200, 40);
         downloadButton.setBackground(new Color(237, 235, 235));
         downloadButton.setForeground(Color.BLACK);
         downloadButton.setFont(new Font("Arial", Font.BOLD, 18));
@@ -247,17 +266,14 @@ public class ReportGenerate extends JFrame{
         add(logoImageSetter);
         add(dashBoardButton);
         add(titleLabel);
-        add(availabilityButton);
-        add(reportButton);
-        add(manageStocksButton);
-        add(manageWarehouseButton);
+        //add(availabilityButton);
+        //add(reportButton);
+        //add(manageStocksButton);
+        //add(manageWarehouseButton);
         add(logoutButton);
         add(scopeLabel);
         add(cropLabel);
-        add(checkbox1);
-        add(checkbox2);
-        add(checkbox3);
-        add(checkbox4);
+        
         add(dropdown);
         add(generateButton);
         add(downloadButton);
@@ -266,4 +282,25 @@ public class ReportGenerate extends JFrame{
         add(bodyBox);
         add(backgroundImageSetter);
     }   
+
+    public List<String> getStocksFromDatabase() {
+        List<String> stockList = new ArrayList<>();
+        
+        try {
+            String query = "SELECT stock_name FROM stock";
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement pst = connection.prepareStatement(query);
+            ResultSet rs = pst.executeQuery();
+
+            // Add each stock name to the list
+            while (rs.next()) {
+                stockList.add(rs.getString("stock_name"));
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return stockList;
+    }
+    
 }

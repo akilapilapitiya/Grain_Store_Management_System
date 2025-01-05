@@ -45,24 +45,24 @@ public class HomeScreen extends JFrame{
         logoImageSetter.setBounds(50, 20, 400, 200);*/
         
         //JButton for Login Link
-        JButton loginPageButton = new JButton("Employee Login");
-        loginPageButton.setBounds(220, 434, 200, 76);
+        JButton loginPageButton = new JButton("");
+        loginPageButton.setBounds(215, 464, 200, 56);
         loginPageButton.setBorderPainted(false);
         loginPageButton.setBackground(Color.RED);
         loginPageButton.setForeground(Color.WHITE);
-        //loginPageButton.setContentAreaFilled(false);
+        loginPageButton.setContentAreaFilled(false);
         loginPageButton.setBorderPainted(false);
-        //loginPageButton.setOpaque(false);
+        loginPageButton.setOpaque(false);
 
         //JButton for SignUp Link
-        JButton SignUpPageButton = new JButton("Buyer Login");
-        SignUpPageButton.setBounds(565, 434, 200, 76);
+        JButton SignUpPageButton = new JButton("");
+        SignUpPageButton.setBounds(585, 464, 200, 56);
         SignUpPageButton.setBorderPainted(false);
         SignUpPageButton.setBackground(Color.RED);
         SignUpPageButton.setForeground(Color.WHITE);
-        //SignUpPageButton.setContentAreaFilled(false);
+        SignUpPageButton.setContentAreaFilled(false);
         SignUpPageButton.setBorderPainted(false);
-        //SignUpPageButton.setOpaque(false);
+        SignUpPageButton.setOpaque(false);
 
 
         //Event actions defined for Login
@@ -86,7 +86,7 @@ public class HomeScreen extends JFrame{
     add(loginPageButton);
     add(SignUpPageButton);
     //add(logoImageSetter);
-    //add(backgroundImageSetter);
+    add(backgroundImageSetter);
     
     
 }   

@@ -205,10 +205,10 @@ public class StockAvailability extends JFrame{
         add(logoImageSetter);
         add(dashBoardButton);
         add(titleLabel);
-        add(availabilityButton);
-        add(reportButton);
-        add(manageStocksButton);
-        add(manageWarehouseButton);
+        //add(availabilityButton);
+        //add(reportButton);
+        //add(manageStocksButton);
+        //add(manageWarehouseButton);
         add(logoutButton);
         add(governmentIconButton);
         add(privateIconButton);
