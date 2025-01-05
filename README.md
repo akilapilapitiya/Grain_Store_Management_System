@@ -1,6 +1,6 @@
 # Granix
 
-A Fully Functional software Solution to Manage a set of warehouse used to sotre and Sell Crops.
+A centralized software solution for managing the operations, inventory, and reporting needs of a grain storage facility. The system aims to optimize grain handling processes, ensure quality control, and provide efficient reporting tools for decision-making
 
 
 
