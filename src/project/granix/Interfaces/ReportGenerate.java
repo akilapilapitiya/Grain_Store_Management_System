@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 //Java Class Imports
 
 import Interfaces.ReportGenerate;
+import fileManager.FileHandle;
 
 
 public class ReportGenerate extends JFrame{
@@ -175,6 +176,10 @@ public class ReportGenerate extends JFrame{
         downloadButton.setFont(new Font("Arial", Font.BOLD, 18));
         downloadButton.setBorder(border);
 
+        FileHandle fileHandler = new FileHandle("example.txt");
+
+
+
         //Event actions defined for Dashboard Button
         dashBoardButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
@@ -212,6 +217,21 @@ public class ReportGenerate extends JFrame{
             public void actionPerformed(ActionEvent e){
                 dispose();
                 new ManageWarehouse().setVisible(true);
+            }
+        });
+
+        //Event actions defined for generateButton
+        generateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                fileHandler.WriteFile();
+            }
+        });
+
+        //Event actions defined for downloadButton
+        downloadButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                fileHandler.Action();
+                fileHandler.DeleteFile();
             }
         });
 

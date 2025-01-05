@@ -8,6 +8,7 @@ public class warehouseEntity {
     private String Warehouse_Telephone;
     private String Sector;
     
+    
     public warehouseEntity() {
     }
 

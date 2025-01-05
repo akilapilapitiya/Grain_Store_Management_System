@@ -174,6 +174,13 @@ public class DashboardView extends JFrame{
             }
         });
 
+        manageWarehouseButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                dispose();
+                new ManageWarehouse().setVisible(true);
+            }
+        });
+
 
 
         //Event actions defined for Logout Button
