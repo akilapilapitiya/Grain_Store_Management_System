@@ -429,6 +429,7 @@ public class StockSales extends JFrame{
                     JOptionPane.showMessageDialog(this, "Error updating quantities: " + e.getMessage());
                 }
             }
+            
 }
 
 

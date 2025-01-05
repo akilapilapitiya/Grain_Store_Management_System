@@ -17,6 +17,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +28,7 @@ import java.util.logging.Logger;
 //Java Class Imports
 import Interfaces.StockPurchases;
 import controller.salesController;
+import db.DBConnection;
 import dto.salesdto;
 
 
@@ -247,17 +252,45 @@ public class StockPurchases extends JFrame{
             
                     ArrayList<salesdto> sales = salesController.getAllsales();
                     for (salesdto sale : sales) {
+                        String stockName = getNameById(sale.getStock_ID());
                         Object[] rowData = {
-                            sale.getStock_ID(),
+                            stockName != null ? stockName : "Unknown", // Fallback to "Unknown" if name is null
                             sale.getQuantity_obtained()
-                            
                         };
+                        dtm.addRow(rowData);
                         dtm.addRow(rowData);
                     }
                 } catch (Exception ex) {
                     Logger.getLogger(AddNewStocks.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(this, ex.getMessage());
                 }
+            }
+
+            public String getNameById(String id) {
+                String name = null;
+                try {
+                    // Establish database connection
+                    Connection connection = DBConnection.getInstance().getConnection();
+            
+                    // SQL query to get the ID based on the name
+                    String query = "SELECT Stock_name FROM stock WHERE Stock_ID = ?";
+                    PreparedStatement preparedStatement = connection.prepareStatement(query);
+            
+                    // Set the name parameter
+                    preparedStatement.setString(1, id.trim());
+            
+                    // Execute the query
+                    ResultSet resultSet = preparedStatement.executeQuery();
+            
+                    // Retrieve the ID if a record is found
+                    if (resultSet.next()) {
+                        name = resultSet.getString("Stock_name");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Error retrieving name by id: " + e.getMessage());
+                }
+                return name; // Returns null if no record is found
             }
 
 }
