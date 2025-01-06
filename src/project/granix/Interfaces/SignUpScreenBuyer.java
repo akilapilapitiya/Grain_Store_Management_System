@@ -253,6 +253,12 @@ public class SignUpScreenBuyer extends JFrame{
                         String fullName = userNameTextBox.getText().trim();
                         String password = userPasswordTextBox.getText().trim();
                         String confirmPassword = userConfirmPasswordTextBox.getText().trim();
+
+                            String userId = userIDTextBox.getText().trim();
+                            if (!userId.matches("B\\d{3}")) { // Check if userID matches the format S followed by three digits
+                                JOptionPane.showMessageDialog(null, "User ID must be like B001.");
+                                return;
+                            }
                 
                             // Check if passwords match
                             if (!password.equals(confirmPassword)) {

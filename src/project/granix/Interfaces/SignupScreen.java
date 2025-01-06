@@ -283,6 +283,12 @@ public class SignupScreen extends JFrame{
                                 JOptionPane.showMessageDialog(null, "Please enter a valid mobile number.");
                                 return;
                             }
+
+                            String userId = userIDTextBox.getText().trim();
+                            if (!userId.matches("E\\d{3}")) { // Check if userID matches the format S followed by three digits
+                                JOptionPane.showMessageDialog(null, "User ID must be like E001.");
+                                return;
+                            }
                             
                 
                             // Retrieve warehouse ID from selected warehouse name

@@ -36,6 +36,7 @@ public class HomeScreen extends JFrame{
         JLabel backgroundImageSetter = new JLabel(backgroundImage);
         backgroundImageSetter.setBounds(0, 0, 1005, 700);
 
+
         /*//JFrame Logo Image
         ImageIcon logoImageSet = new ImageIcon(getClass().getResource("Assets/Logo.png"));
         Image logoSet = logoImageSet.getImage();
