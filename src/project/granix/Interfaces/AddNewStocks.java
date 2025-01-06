@@ -395,6 +395,13 @@ public class AddNewStocks extends JFrame{
         
             private void addStock() throws Exception {
                 try {
+
+                    String stockID = StockIDTextBox.getText().trim();
+                    if (!stockID.matches("S\\d{3}")) { // Check if StockID matches the format S followed by three digits
+                        JOptionPane.showMessageDialog(this, "Stock ID must be in the format S001.", "Invalid Stock ID", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
+
                     // Validate Stock Quantity - Ensure it's a valid number
                     String stockQuantityText = StockQuantityTextBox.getText();
                     if (!isValidNumber(stockQuantityText)) {

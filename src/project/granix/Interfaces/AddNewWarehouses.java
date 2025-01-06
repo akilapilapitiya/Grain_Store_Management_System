@@ -404,6 +404,11 @@ public class AddNewWarehouses extends JFrame{
 
             private void addWarehouse() throws Exception {
                 try {
+                    String warehouseID = WarehouseIDTextBox.getText().trim();
+                    if (!warehouseID.matches("W\\d{3}")) { // Check if StockID matches the format S followed by three digits
+                        JOptionPane.showMessageDialog(this, "Warehouse ID must be in the format W001.", "Invalid Stock ID", JOptionPane.ERROR_MESSAGE);
+                        return;
+                    }
                     String warehouseCapacityText = WarehouseCapacity.getText();
                     if (!isValidNumber(warehouseCapacityText)) {
                         JOptionPane.showMessageDialog(this, "Warehouse Capacity must be a valid number!", "Invalid Input", JOptionPane.ERROR_MESSAGE);
