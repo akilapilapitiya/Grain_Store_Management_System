@@ -16,9 +16,10 @@ A very special thanks to all contributors for helping to make the project a succ
 
 
 ## Screenshots
+<div>
 <img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/cover.jpg" alt="Cover" width="300">
 
 <img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/login.jpg" alt="Login" width="300">
 
 <img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/addNewStocks.jpg" alt="Interface" width="300">
-
+</div>
