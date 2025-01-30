@@ -16,11 +16,9 @@ A very special thanks to all contributors for helping to make the project a succ
 
 
 ## Screenshots
-<img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/cover.jpg" alt="Screenshot" width="500">
-https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/cover.jpg
-![Login Page](https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/login.jpg)
+<img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/cover.jpg" alt="Cover" width="500">
 
-![Login Page](https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/login.jpg)
+<img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/login.jpg" alt="Login" width="500">
 
-![Interface](https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/addNewStocks.jpg)
+<img src="https://github.com/akilapilapitiya/Grain_Store_Management_System/blob/main/Screenshots/addNewStocks.jpg" alt="Interface" width="500">
 
