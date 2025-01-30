@@ -3,6 +3,11 @@
 
 The Grain Store Management System is a Java-based application designed to efficiently manage grain storage, stock tracking, warehouse operations, employee management, and buyer interactions. This system streamlines inventory management and provides real-time stock rate updates for buyers.
 
+## Tech Stack
+- Programming Language: Java
+- Database: MySQL
+- GUI Designer: Java Swing
+
 
 ## Contributors
 A very special thanks to all contributors for helping to make the project a success.
