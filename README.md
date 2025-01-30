@@ -12,7 +12,7 @@ The Grain Store Management System is a Java-based application designed to effici
 - Clone the repository:
  <a href = "https://github.com/akilapilapitiya/Grain_Store_Management_System">Grain Store Management System</a>
 
- - Set up the database using the SQL found in <a href = "https://github.com/akilapilapitiya/Grain_Store_Management_System">SQL Codes</a> folder
+ - Set up the database using the SQL found in <a href = "https://github.com/akilapilapitiya/Grain_Store_Management_System/tree/main/SQL%20Codes">SQL Codes</a> folder
 
  - Modify <a href = "https://github.com/akilapilapitiya/Grain_Store_Management_System">DBConnection.java</a> with your SQL database accessing details
 
